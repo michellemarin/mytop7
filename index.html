@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Top 7 Things</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/component.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+    <header>
+      <img src="styleguide/logo.svgz" style="height: 200px; width:200px; text-align: center;" /> <br/>
+      <section class="color-4">
+        <nav class="cl-effect-11">
+          <a href="file:///Users/michellemarin/iron-yard/mytop7/index.html#/" data-hover="Home">Home</a>
+          <a href="file:///Users/michellemarin/iron-yard/mytop7/index.html#/review" data-hover="Review">Review</a>
+
+
+
+      {{#if isLoggledIn}}
+        {{link-to "Sort by Category" "category"}}
+        <button {{action "logout"}} class="btn btn-primary">Logout</button>
+      {{else}}
+        <a href="file:///Users/michellemarin/iron-yard/mytop7/index.html#/login" data-hover="Login">Login</a>
+      {{/if}}
+      </nav>
+    </section>
+
+    </header>
+    <div id="content">
+    <article>
+      {{outlet}}
+    </article>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="components/thing-form">
+
+  {{#with thing}}
+    <form role="form">
+      <div class="form-group">
+
+        <label for="title">Title</label>
+        {{input type="text" value=title id="title" class="form-control"}}
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        {{input type="text" value=description id="description" class="form-control"}}
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        {{view "select" value=category content=App.CATEGORIES optionValuePath="content.id" optionLabelPath="content.name" classNames="form-control"}}
+      </div>
+      <div class="form-group">
+        <label for="image">image (url)</label>
+        {{input type="text" value=imgURL id="image" class="form-control"}}
+      </div>
+      {{yield}}
+      </form>
+
+      <h2>{{title}}</h2>
+      {{/with}}
+      {{{markedDescription}}}
+
+  </script>
+
+
+  <script type="text/x-handlebars" id="new_thing">
+  <div class="otherpage">
+    {{#thing-form thing=this}}
+      <button {{action "save"}} class="btn btn-primary">Add a Top Thing</button>
+    {{/thing-form}}
+  </div>
+  </script>
+
+    <script type="text/x-handlebars" id="edit_thing">
+    <div class="otherpage">
+    {{#thing-form thing=this}}
+      <button {{action "update"}} class="btn btn-primary">Update This</button>
+    {{/thing-form}}
+  </div>
+  </script>
+
+  <script type="text/x-handlebars" id="components/thing-detail">
+  <div class="otherpage">
+    {{#with thing}}
+      <h2> {{title}} </h2>
+      <h4> {{categoryName}} </h4>
+      <img {{bind-attr src=imgURL }} style="width: 50%" />
+      <p> {{{markedDescription}}} </p>
+
+      {{#if isLoggedIn}}
+        {{link-to "Edit" "edit_thing" this classNames="btn btn-primary"}}
+        {{yield}}
+      {{/if}}
+
+      {{outlet}}
+
+      {{/with}}
+    </div>
+    </script>
+
+    <script type="text/x-handlebars" id="thing">
+    <div class="otherpage">
+      {{#thing-detail thing=this}}
+        <button {{action "destroy"}} class="btn btn-danger">Delete this Top Thing</button>
+      {{/thing-detail}}
+
+      {{link-to "+Add New" "new_thing"}}
+      {{link-to "Review All" "review_things"}}
+    </div>
+    </script>
+
+
+  <script type="text/x-handlebars" id="category">
+  <div class="otherpage">
+    <ul>
+      <li>{{link-to "Show All" "category" (query-params category="all")}}</li>
+    {{#each App.CATEGORIES}}
+      <li>{{#link-to "category" (query-params category=id)}} Show Only {{name}} {{/link-to}} </li>
+    {{/each}}
+    </ul>
+    {{#if filteredThings.length }}
+    <h2>{{filteredThings.length}} Thing{{#if moreThanOneFound}}s{{/if}} Found</h2>
+    {{else}}
+    <h2>Sorry No Top Things Here</h2>
+    {{/if}}
+    <ul>
+      {{#each filteredThings}}
+        <li>
+        {{#link-to "thing" this tagName="h2"}} {{title}} {{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  </script>
+
+  <script type="text/x-handlebars" id="login">
+  <div class="otherpage">
+    <h2>Login</h2>
+    <h4>{{error}}</h4>
+
+    {{input type="email" value=username placeholder="email"}}
+    {{input type="password" value=password placeholder="password"}}
+
+    <button {{action "login"}}>Login</button>
+  </div>
+  </script>
+
+
+
+  <script type="text/x-handlebars" id="review_things">
+  <div class="otherpage">
+  <div class="otherinner">
+  <button class="btn btn-primary" {{action "sortToggle" "title"}}>Sort Alphabetically</button>
+  <button class="btn btn-primary" {{action "sortToggle" "rank"}}>Sort by Rank</button>
+    <ul>
+    {{#each}}
+      <li>
+        <h2>
+        {{#link-to "thing" this }} {{rank}} {{title}} {{/link-to}}
+        </h2>
+        <p> Vote up or down
+        <i class="glyphicon glyphicon-chevron-up" {{action "upvote" this }}></i>
+        <i class="glyphicon glyphicon-chevron-down" {{action "downvote" this }}></i>
+        </p>
+
+      </li>
+    {{/each}}
+    </ul>
+
+    {{link-to "+Add New" "new_thing"}}
+  </div>
+  </div>
+  </script>
+
+    <script type="text/x-handlebars" id="index">
+    <div id="homepage">
+    <div id="homeinner">
+    <h1>The Most Important Things In Life <strong><i>Aren't Things</i></strong></h1>
+    <h3><i>~Unknown</i></h3>
+    <ul>
+      <li><h4>Discover what 7 things are most important to you right now</h4></li>
+      <li><h4>And find ways to have more of those things in your life</h4></li>
+    </ul>
+    <section class="color-4">
+      <nav class="cl-effect-8">
+        <a href="file:///Users/michellemarin/iron-yard/mytop7/index.html#/things/new" data-hover="Get Started">Get Started</a>
+      </nav>
+    </section>
+    </div>
+    </div>
+  </script>
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-v1.3.0.js"></script>
+  <script src="js/libs/ember-1.8.1.js"></script>
+  <script src='js/libs/jquery.validate.js'></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/libs/marked.js"></script>
+  <script src="js/libs/modernizr.custom.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/emberfire/1.3.1/emberfire.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/authentication.js"></script>
+  <script src="js/routes/category_route.js"></script>
+  <script src="js/routes/edit_thing_route.js"></script>
+  <script src="js/routes/index_route.js"></script>
+  <script src="js/routes/new_thing_index_route.js"></script>
+  <script src="js/routes/review_things_route.js"></script>
+  <script src="js/routes/thing_route.js"></script>
+  <script src="js/models/thing.js"></script>
+  <script src="js/controllers/edit_thing_controller.js"></script>
+  <script src="js/controllers/new_thing_controller.js"></script>
+  <script src="js/controllers/review_things_controller.js"></script>
+  <script src="js/controllers/thing_controller.js"></script>
+  <script src="tests/runner.js"></script>
+</body>
+</html>
