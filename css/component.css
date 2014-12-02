@@ -300,6 +300,7 @@ nav a:focus {
 /* Effect 8: border slight translate */
 .cl-effect-8 a {
 	padding: 10px 20px;
+  text-decoration: none;
 }
 
 .cl-effect-8 a::before,

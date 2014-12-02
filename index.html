@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/component.css">
   <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="css/set2.css">
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,500,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
@@ -38,7 +39,7 @@
                 <li><a href="#/" data-hover="Home" {{action 'toggleMenu' 'index'}}>Home</a></li>
                 <li><a href="#/review" data-hover="Review" {{action 'toggleMenu' 'review_things'}}>Review</a></li>
               {{#if isLoggedIn}}
-                <li>{{link-to "Sort by Category" "category"}}</li>
+                <li><a href="#/categories" data-hover="Category" {{action 'toggleMenu' 'category'}}>Categories</a></li>
                 <li><button class="btn btn-primary" {{action 'toggleMenu' 'logout'}}>Logout</button></li>
               {{else}}
                 <li><a href="#/login" data-hover="Login" {{action 'toggleMenu' 'login'}}>Login</a></li>
@@ -64,7 +65,7 @@
                 <li><a href="#/" data-hover="Home">Home</a></li>
                 <li><a href="#/review" data-hover="Review">Review</a></li>
               {{#if isLoggedIn}}
-                <li><a href="#/category" data-hover="Categories"}}Categories</a></li>
+                <li><a href="#/categories" data-hover="Categories"}}>Categories</a></li>
                 <li><button {{action "logout"}} class="btn btn-primary">Logout</button></li>
               {{else}}
                 <li><a href="#/login" data-hover="Login">Login</a></li>
@@ -145,36 +146,44 @@
     <script type="text/x-handlebars" id="edit_thing">
 
     {{#thing-form thing=this}}
-      <button {{action "update"}} class="btn btn-primary">Update This</button>
+      <button {{action "update"}} class="btn btn-primary">Update</button>
     {{/thing-form}}
 
   </script>
 
   <script type="text/x-handlebars" id="components/thing-detail">
+    <div class="grid">
+      {{#with thing}}
+      <figure class="effect-ming">
+        <img {{bind-attr src=imgURL }} />
+        <figcaption>
+          <h2> {{title}} </h2>
+          <h6> {{categoryName}} </h6>
+          <p> {{{markedDescription}}} </p>
+          {{#if isLoggedIn}}
+          {{yield}}
 
-    {{#with thing}}
-    <div class="thing-container">
-      <h2> {{title}} </h2>
-      <h4> {{categoryName}} </h4>
-      <img {{bind-attr src=imgURL }} style="width: 50%" />
-      <p> {{{markedDescription}}} </p>
-    </div>
-      {{#if isLoggedIn}}
-        {{link-to "Edit" "edit_thing" this classNames="btn btn-primary"}}
-        {{yield}}
-      {{/if}}
 
-      {{outlet}}
+          {{/if}}
+          {{outlet}}
+        {{/with}}
+          </figcaption>
+        </figure>
+      </div>
 
-      {{/with}}
 
     </script>
 
     <script type="text/x-handlebars" id="thing">
 
       {{#thing-detail thing=this}}
+        <nav class="cl-effect-8">
+          <ul>
+            <li>{{link-to "Edit" "edit_thing" this}}</li>
+            <li><a href="#/review" this {{action "destroy" }} data-hover="Delete">Delete</a></li>
+          </ul>
+        </nav>
 
-        <button {{action "destroy"}} class="btn btn-primary">Delete Top Thing</a>
       {{/thing-detail}}
       <nav class="cl-effect-8">
         <ul>
@@ -228,30 +237,26 @@
     <ul>
       <li><a href="#/review" {{action "sortToggle" "title"}} data-hover="Sort by Alphabet">Sort by Alphabet</a></li>
       <li><a href="#/review" {{action "sortToggle" "rank"}} data-hover="Sort by Rank">Sort by Rank</a></li>
+      <li><a href="#/things/new" data-hover="Add New">Add New</a></li>
     </ul>
   </nav>
+  <div class="grid">
 
-    <ul>
     {{#each}}
-    <div class="thing-container">
-      <li>
-        <h2>
-        {{#link-to "thing" this }} {{rank}} {{title}} {{/link-to}}
-        </h2>
-        <p> Vote up or down
-        <i class="glyphicon glyphicon-chevron-up" {{action "upvote" this }}></i>
-        <i class="glyphicon glyphicon-chevron-down" {{action "downvote" this }}></i>
-        </p>
-
-      </li>
-      </div>
+      <figure class="effect-ming">
+        <img {{bind-attr src=imgURL }} />
+        <figcaption>
+          <h2>
+          {{#link-to "thing" this }} {{rank}} {{title}} {{/link-to}}
+          </h2>
+          <p> Vote up or down
+          <i class="glyphicon glyphicon-chevron-up" {{action "upvote" this }}></i>
+          <i class="glyphicon glyphicon-chevron-down" {{action "downvote" this }}></i>
+          </p>
+        </figcaption>
+      </figure>
     {{/each}}
-    </ul>
-    <nav class="cl-effect-8">
-      <ul>
-        <li><a href="#/things/new" data-hover="Add New">Add New</a></li>
-      </ul>
-  </nav>
+  </div>
 
   </script>
 
