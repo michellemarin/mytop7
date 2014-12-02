@@ -34,6 +34,11 @@ p {
   margin-left: 20px;
 }
 
+.logo-responsive {
+  width: 80%;
+  text-align: center;
+}
+
 
 article {
   margin: 0 auto;
@@ -97,11 +102,23 @@ li {
   height: 100px;
 }
 
+.bg-cover {
+  background: #B1D0CA;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 2000px;
+  margin: 0;
+  padding: 0;
+}
+
 .responsive-nav li {
-  diplay: block;
-  background-color: #B2D1CB;
-  color: white;
+  display: block;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  color: white;
   text-align: center;
 }
 

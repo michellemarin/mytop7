@@ -15,8 +15,9 @@ App.ApplicationController = Ember.Controller.extend({
   expand: false,
 
   actions: {
-    toggleMenu: function () {
+    toggleMenu: function (target) {
       this.toggleProperty('expand');
+      this.transitionToRoute(target);
     }
   }
 });

@@ -18,9 +18,7 @@
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 
       <div class="navbar-header">
-      {{#link-to "index" }}
-      <img src="styleguide/mytop7-logo.svg" }} class="logo" />
-      {{/link-to}}
+
 
         <button type="button" {{action 'toggleMenu'}} class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle Navigation</span>
@@ -29,20 +27,24 @@
           <span class="icon-bar"></span>
         </button>
         {{#if expand}}
-          <section class="color-4">
-            <nav class="cl-effect-11">
+
+          <section class="bg-cover">
+            <nav class="cl-effect-8">
               <ul class="responsive-nav">
-                <li><a href="#/" data-hover="Home">Home</a></li>
-                <li><a href="#/review" data-hover="Review">Review</a></li>
+                <li><div class="spacer"></div></li>
+                <li><a href="#/" {{action 'toggleMenu' 'index'}}><img src="styleguide/responsive-logo.svg" class="logo-responsive" /></a></li>
+                <li><a href="#/" data-hover="Home" {{action 'toggleMenu' 'index'}}>Home</a></li>
+                <li><a href="#/review" data-hover="Review" {{action 'toggleMenu' 'review_things'}}>Review</a></li>
               {{#if isLoggedIn}}
                 <li>{{link-to "Sort by Category" "category"}}</li>
-                <button {{action "logout"}} class="btn btn-primary">Logout</button>
+                <button {{action "logout"}} class="btn btn-primary" {{action 'toggleMenu' 'logout'}}>Logout</button>
               {{else}}
-                <li><a href="#/login" data-hover="Login">Login</a></li>
+                <li><a href="#/login" data-hover="Login" {{action 'toggleMenu' 'login'}}>Login</a></li>
               {{/if}}
               </ul>
             </nav>
           </section>
+
         {{else}}
 
         {{/if}}
@@ -53,8 +55,11 @@
 
 
       <div class="collapse navbar-collapse">
+      {{#link-to "index" }}
+      <img src="styleguide/mytop7-logo.svg" }} class="logo" />
+      {{/link-to}}
         <section class="color-4">
-          <nav class="cl-effect-11">
+          <nav class="cl-effect-8">
             <ul class="collapse navbar-collapse">
               <li><a href="#/" data-hover="Home">Home</a></li>
               <li><a href="#/review" data-hover="Review">Review</a></li>
