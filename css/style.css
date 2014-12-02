@@ -6,7 +6,11 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
-  background-color: white;
+  background: url('file:///Users/michellemarin/iron-yard/mytop7/styleguide/home.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin: 0;
 }
 
@@ -21,21 +25,14 @@ p {
     line-height: 1.5;
   }
 
-header {
-  color: #fff;
-  text-align: center;
-  background: url('file:///Users/michellemarin/iron-yard/mytop7/styleguide/The-Night-Sky.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 100%;
-}
 
-header a {
-    margin-left: 0;
-}
 
+.logo {
+  width: 125px;
+  height: 125px;
+  display: inline-block;
+  margin-left: 20px;
+}
 
 
 article {
@@ -48,40 +45,64 @@ article {
   text-align: center;
 }
 
+header {
+  color: #fff;
+  text-align: left;
+  width: 100%;
+}
+
 #homepage {
-  background: url('file:///Users/michellemarin/iron-yard/mytop7/styleguide/home.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   color: white;
   text-align: center;
   margin: 0;
   padding: 0;
 }
 
-#homeinner {
-  color: white;
-  text-align: center;
-  width: 40%;
-  margin-left: 20%;
-  padding: 20px;
-}
-
-#homeinner li {
-  color: white;
-}
-
-
 
 li {
-  color: #3A3A3A;
-  list-style: center;
   list-style-type: none;
+  display: inline-block;
 }
 
-.nav li {
+.navbar-default {
+  background: transparent !important;
+  border: none !important;
+}
+
+
+.navbar-header {
+  background: transparent;
+}
+
+.navbar-nav li {
   display: inline-block;
+}
+
+.navbar-nav>li>a:hover {
+  color:#fff;
+}
+
+.collapse.in {
+  background: transparent !important;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus .spacer {
+  background-color: transparent !important;
+  display: inline-block;
+}
+
+.spacer {
+  height: 100px;
+}
+
+.responsive-nav li {
+  diplay: block;
+  background-color: #B2D1CB;
+  color: white;
+  width: 100%;
+  text-align: center;
 }
 
 a {
@@ -91,6 +112,39 @@ a {
 
 a:hover {
   color: #eee;
+}
+
+#homeinner {
+  color: white;
+  text-align: left;
+  width: 40%;
+  margin-left: 10%;
+  padding: 20px;
+
+}
+
+#homeinner li {
+  color: white;
+  text-align: left;
+}
+
+.thing-container {
+  margin: 20px auto 0 auto;
+  width: 40%;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 20px;
+  border-radius: 6px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
+  color: #222;
+  text-align: center;
+  display: inline-block;
+}
+
+.thing-container li {
+  display: inline-block;
 }
 
 .form-control {

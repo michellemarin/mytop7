@@ -26,28 +26,18 @@ App.ThingFormComponent = Ember.Component.extend({
   }.property('thing.description')
 });
 
-
-$("#myForm").validate( {
-  rules: {
-    title: {
-      required: true
-    },
-    description: {
-      required: true
-    },
-    category: {
-      required: true
-    },
-    imgURL: {
-      required: true,
-      url: true
-    },
-    items: {
-      required: true
-    },
-    steps: {
-      required: true
+$(document).ready(function(){
+  var scroll_start = 0;
+  var startchange = $('#startchange');
+  var offset = startchange.offset();
+    if (startchange.length) {
+      $(document).scroll(function() {
+        scroll_start = $(this).scrollTop();
+        if(scroll_start > offset.top) {
+          $('.navbar-header').css('background-color', '#435A6B');
+        } else {
+          $('.navbar-header').css('background-color', 'transparent');
+        }
+      });
     }
-  }
-
 });

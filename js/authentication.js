@@ -10,6 +10,14 @@ App.ApplicationController = Ember.Controller.extend({
 
   logout: function() {
     this.set('isLoggedIn', false);
+  },
+
+  expand: false,
+
+  actions: {
+    toggleMenu: function () {
+      this.toggleProperty('expand');
+    }
   }
 });
 

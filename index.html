@@ -12,36 +12,90 @@
 <body>
 
   <script type="text/x-handlebars">
-    <header>
-      <img src="styleguide/logo.svgz" style="height: 200px; width:200px; text-align: center;" /> <br/>
-      <section class="color-4">
-        <nav class="cl-effect-11">
-          <a href="file:///Users/michellemarin/iron-yard/mytop7/index.html#/" data-hover="Home">Home</a>
-          <a href="file:///Users/michellemarin/iron-yard/mytop7/index.html#/review" data-hover="Review">Review</a>
 
 
 
-      {{#if isLoggledIn}}
-        {{link-to "Sort by Category" "category"}}
-        <button {{action "logout"}} class="btn btn-primary">Logout</button>
-      {{else}}
-        <a href="file:///Users/michellemarin/iron-yard/mytop7/index.html#/login" data-hover="Login">Login</a>
-      {{/if}}
-      </nav>
-    </section>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-    </header>
-    <div id="content">
-    <article>
-      {{outlet}}
-    </article>
+      <div class="navbar-header">
+      {{#link-to "index" }}
+      <img src="styleguide/mytop7-logo.svg" }} class="logo" />
+      {{/link-to}}
+
+        <button type="button" {{action 'toggleMenu'}} class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        {{#if expand}}
+          <section class="color-4">
+            <nav class="cl-effect-11">
+              <ul class="responsive-nav">
+                <li><a href="#/" data-hover="Home">Home</a></li>
+                <li><a href="#/review" data-hover="Review">Review</a></li>
+              {{#if isLoggedIn}}
+                <li>{{link-to "Sort by Category" "category"}}</li>
+                <button {{action "logout"}} class="btn btn-primary">Logout</button>
+              {{else}}
+                <li><a href="#/login" data-hover="Login">Login</a></li>
+              {{/if}}
+              </ul>
+            </nav>
+          </section>
+        {{else}}
+
+        {{/if}}
+
+
+
+      </div>
+
+
+      <div class="collapse navbar-collapse">
+        <section class="color-4">
+          <nav class="cl-effect-11">
+            <ul class="collapse navbar-collapse">
+              <li><a href="#/" data-hover="Home">Home</a></li>
+              <li><a href="#/review" data-hover="Review">Review</a></li>
+            {{#if isLoggedIn}}
+              <li>{{link-to "Sort by Category" "category"}}</li>
+              <button {{action "logout"}} class="btn btn-primary">Logout</button>
+            {{else}}
+              <li><a href="#/login" data-hover="Login">Login</a></li>
+            {{/if}}
+            </ul>
+          </nav>
+        </section>
+      </div>
     </div>
+
+
+
+  <div class="spacer"></div>
+
+
+
+
+
+  <p id="startchange">
+    <div id="content">
+      <article>
+        {{outlet}}
+      </article>
+    </div>
+  </p>
+
   </script>
 
   <script type="text/x-handlebars" id="components/thing-form">
 
   {{#with thing}}
     <form role="form">
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+
       <div class="form-group">
 
         <label for="title">Title</label>
@@ -65,6 +119,9 @@
       <h2>{{title}}</h2>
       {{/with}}
       {{{markedDescription}}}
+      </div>
+      <div class="col-xs-2"></div>
+      </div>
 
   </script>
 
@@ -88,11 +145,12 @@
   <script type="text/x-handlebars" id="components/thing-detail">
   <div class="otherpage">
     {{#with thing}}
+    <div class="thing-container">
       <h2> {{title}} </h2>
       <h4> {{categoryName}} </h4>
       <img {{bind-attr src=imgURL }} style="width: 50%" />
       <p> {{{markedDescription}}} </p>
-
+    </div>
       {{#if isLoggedIn}}
         {{link-to "Edit" "edit_thing" this classNames="btn btn-primary"}}
         {{yield}}
@@ -154,12 +212,13 @@
 
 
   <script type="text/x-handlebars" id="review_things">
-  <div class="otherpage">
-  <div class="otherinner">
+
+
   <button class="btn btn-primary" {{action "sortToggle" "title"}}>Sort Alphabetically</button>
   <button class="btn btn-primary" {{action "sortToggle" "rank"}}>Sort by Rank</button>
     <ul>
     {{#each}}
+    <div class="thing-container">
       <li>
         <h2>
         {{#link-to "thing" this }} {{rank}} {{title}} {{/link-to}}
@@ -170,30 +229,37 @@
         </p>
 
       </li>
+      </div>
     {{/each}}
     </ul>
 
     {{link-to "+Add New" "new_thing"}}
-  </div>
-  </div>
+
   </script>
 
     <script type="text/x-handlebars" id="index">
-    <div id="homepage">
-    <div id="homeinner">
-    <h1>The Most Important Things In Life <strong><i>Aren't Things</i></strong></h1>
-    <h3><i>~Unknown</i></h3>
-    <ul>
-      <li><h4>Discover what 7 things are most important to you right now</h4></li>
-      <li><h4>And find ways to have more of those things in your life</h4></li>
-    </ul>
-    <section class="color-4">
-      <nav class="cl-effect-8">
-        <a href="file:///Users/michellemarin/iron-yard/mytop7/index.html#/things/new" data-hover="Get Started">Get Started</a>
-      </nav>
-    </section>
-    </div>
-    </div>
+      <div id="homepage">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+              <h1>The Most Important Things In Life <strong><i>Aren't Things</i></strong></h1>
+              <h3><i>~Unknown</i></h3>
+              <ul>
+                <li><h4>Discover what is most important to you right now</h4></li>
+                <li><h4>Find ways to have more of that in your life</h4></li>
+                <li><h4>Get resources to acheive your goals</h4></li>
+              </ul>
+              <section class="color-41">
+                <nav class="cl-effect-8">
+                  <a href="#/things/new" data-hover="Get Started">Get Started</a>
+                </nav>
+              </section>
+            </div>
+            <div class="col-md-5"></div>
+          </div>
+        </div>
+      </div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
@@ -219,6 +285,8 @@
   <script src="js/controllers/new_thing_controller.js"></script>
   <script src="js/controllers/review_things_controller.js"></script>
   <script src="js/controllers/thing_controller.js"></script>
+  <script src="js/controllers/index_controller.js"></script>
+
   <script src="tests/runner.js"></script>
 </body>
 </html>

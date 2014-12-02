@@ -117,7 +117,7 @@ nav a:focus {
 
 .csstransforms3d .cl-effect-2 a:hover span::before,
 .csstransforms3d .cl-effect-2 a:focus span::before {
-	background: #28a2ee;	
+	background: #28a2ee;
 }
 
 /* Effect 3: bottom line slides/fades in */
@@ -252,7 +252,7 @@ nav a:focus {
 
 .cl-effect-6 a:hover::after {
 	height: 100%;
-} 
+}
 
 /* Effect 7: second border slides up */
 .cl-effect-7 a {
@@ -481,7 +481,7 @@ nav a:focus {
 	border-top: 2px solid #0972b4;
 	color: #0972b4;
 	text-shadow: none;
-} 
+}
 
 .cl-effect-11 a::before {
 	position: absolute;
@@ -875,7 +875,7 @@ nav a:focus {
 
 .csstransforms3d .cl-effect-19 a:hover span::before,
 .csstransforms3d .cl-effect-19 a:focus span::before {
-	background: #ef5e50;	
+	background: #ef5e50;
 }
 
 /* Effect 20: 3D side */
@@ -934,7 +934,7 @@ nav a:focus {
 
 .cl-effect-20 a:hover span::before,
 .cl-effect-20 a:focus span::before {
-	-webkit-transform: rotateX(10deg);	
+	-webkit-transform: rotateX(10deg);
 	-moz-transform: rotateX(10deg);
 	transform: rotateX(10deg);
 }
