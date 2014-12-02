@@ -26,7 +26,8 @@ App.ThingFormComponent = Ember.Component.extend({
   }.property('thing.description')
 });
 
-$(document).ready(function(){
+
+/*$(document).ready(function(){
   var scroll_start = 0;
   var startchange = $('#startchange');
   var offset = startchange.offset();
@@ -34,10 +35,10 @@ $(document).ready(function(){
       $(document).scroll(function() {
         scroll_start = $(this).scrollTop();
         if(scroll_start > offset.top) {
-          $('.navbar-header').css('background-color', '#435A6B');
+          $('.navbar-default').css('background-color', '#435A6B');
         } else {
-          $('.navbar-header').css('background-color', 'transparent');
+          $('.navbar-default').css('background-color', 'transparent');
         }
       });
     }
-});
+});*/

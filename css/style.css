@@ -1,10 +1,15 @@
 /* Put your CSS here */
+
+
+
 .ember-application {
     margin: 0;
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', Arial, sans-serif !important;
+  font-weight: 400;
+	font-size: 1em;
   color: #333;
   background: url('file:///Users/michellemarin/iron-yard/mytop7/styleguide/home.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -17,6 +22,7 @@ body {
 
 h1, h2, h3 {
     line-height: 1;
+    font-weight: 800;
   }
 
 p {
@@ -28,14 +34,14 @@ p {
 
 
 .logo {
-  width: 125px;
-  height: 125px;
+  width: 115px;
+  height: 115px;
   display: inline-block;
   margin-left: 20px;
 }
 
 .logo-responsive {
-  width: 80%;
+  width: 100%;
   text-align: center;
 }
 
@@ -52,15 +58,19 @@ article {
 
 header {
   color: #fff;
-  text-align: left;
-  width: 100%;
+  background: transparent;
 }
 
 #homepage {
   color: white;
-  text-align: center;
+  text-align: left;
   margin: 0;
   padding: 0;
+}
+
+#homepage h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
 }
 
 
@@ -69,15 +79,21 @@ li {
   display: inline-block;
 }
 
-.navbar-default {
-  background: transparent !important;
+.navbar-default.main-nav {
+  background: rgba(220, 204, 168, 0.6);
   border: none !important;
 }
 
+.navbar-toggle.custom-menu {
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+}
 
 .navbar-header {
-  background: transparent;
+  color:  rgba(0, 0, 0, 0.6);
 }
+
 
 .navbar-nav li {
   display: inline-block;
@@ -102,8 +118,12 @@ li {
   height: 100px;
 }
 
+.spacer-sm {
+  height: 2em;
+}
+
 .bg-cover {
-  background: #B1D0CA;
+  background: rgba(220, 204, 168, 0.9);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -131,19 +151,6 @@ a:hover {
   color: #eee;
 }
 
-#homeinner {
-  color: white;
-  text-align: left;
-  width: 40%;
-  margin-left: 10%;
-  padding: 20px;
-
-}
-
-#homeinner li {
-  color: white;
-  text-align: left;
-}
 
 .thing-container {
   margin: 20px auto 0 auto;

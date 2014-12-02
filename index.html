@@ -3,29 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>My Top 7 Things</title>
+  <meta name="description" content="My Top 7 Things: Discover what is most important to you right now" />
+	<meta name="keywords" content="lifestyle, self-improvment, application, web app, self-help" />
+	<meta name="author" content="Michelle Marin: Frontend Developer + Web Designer" />
+	<link rel="shortcut icon" href="styleguide/favicon.ico">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/component.css">
   <link rel="stylesheet" href="css/demo.css">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,500,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
 <body>
 
   <script type="text/x-handlebars">
 
-
-
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-
+    <div class="navbar navbar-default navbar-fixed-top main-nav" role="navigation">
       <div class="navbar-header">
 
-
-        <button type="button" {{action 'toggleMenu'}} class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <button type="button" {{action 'toggleMenu'}} class="navbar-toggle custom-menu" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle Navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+
         {{#if expand}}
 
           <section class="bg-cover">
@@ -37,7 +39,7 @@
                 <li><a href="#/review" data-hover="Review" {{action 'toggleMenu' 'review_things'}}>Review</a></li>
               {{#if isLoggedIn}}
                 <li>{{link-to "Sort by Category" "category"}}</li>
-                <button {{action "logout"}} class="btn btn-primary" {{action 'toggleMenu' 'logout'}}>Logout</button>
+                <li><button class="btn btn-primary" {{action 'toggleMenu' 'logout'}}>Logout</button></li>
               {{else}}
                 <li><a href="#/login" data-hover="Login" {{action 'toggleMenu' 'login'}}>Login</a></li>
               {{/if}}
@@ -49,40 +51,33 @@
 
         {{/if}}
 
-
-
       </div>
-
-
       <div class="collapse navbar-collapse">
-      {{#link-to "index" }}
-      <img src="styleguide/mytop7-logo.svg" }} class="logo" />
-      {{/link-to}}
-        <section class="color-4">
-          <nav class="cl-effect-8">
-            <ul class="collapse navbar-collapse">
-              <li><a href="#/" data-hover="Home">Home</a></li>
-              <li><a href="#/review" data-hover="Review">Review</a></li>
-            {{#if isLoggedIn}}
-              <li>{{link-to "Sort by Category" "category"}}</li>
-              <button {{action "logout"}} class="btn btn-primary">Logout</button>
-            {{else}}
-              <li><a href="#/login" data-hover="Login">Login</a></li>
-            {{/if}}
-            </ul>
-          </nav>
-        </section>
-      </div>
-    </div>
 
+        {{#link-to "index" }}
+        <img src="styleguide/mytop7-logo.svg" }} class="logo" />
+        {{/link-to}}
+
+          <section class="color-4">
+            <nav class="cl-effect-8">
+              <ul class="collapse navbar-collapse">
+                <li><a href="#/" data-hover="Home">Home</a></li>
+                <li><a href="#/review" data-hover="Review">Review</a></li>
+              {{#if isLoggedIn}}
+                <li><a href="#/category" data-hover="Categories"}}Categories</a></li>
+                <li><button {{action "logout"}} class="btn btn-primary">Logout</button></li>
+              {{else}}
+                <li><a href="#/login" data-hover="Login">Login</a></li>
+              {{/if}}
+              </ul>
+            </nav>
+          </section>
+        </div>
+      </div>
 
 
   <div class="spacer"></div>
-
-
-
-
-
+  <div class="spacer-sm"></div>
   <p id="startchange">
     <div id="content">
       <article>
@@ -132,23 +127,31 @@
 
 
   <script type="text/x-handlebars" id="new_thing">
-  <div class="otherpage">
+
     {{#thing-form thing=this}}
-      <button {{action "save"}} class="btn btn-primary">Add a Top Thing</button>
+
+
+  <nav class="cl-effect-8">
+    <ul>
+      <li><a href="#/review" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
+    </ul>
+  </nav>
+
+
     {{/thing-form}}
-  </div>
+
   </script>
 
     <script type="text/x-handlebars" id="edit_thing">
-    <div class="otherpage">
+
     {{#thing-form thing=this}}
       <button {{action "update"}} class="btn btn-primary">Update This</button>
     {{/thing-form}}
-  </div>
+
   </script>
 
   <script type="text/x-handlebars" id="components/thing-detail">
-  <div class="otherpage">
+
     {{#with thing}}
     <div class="thing-container">
       <h2> {{title}} </h2>
@@ -164,18 +167,21 @@
       {{outlet}}
 
       {{/with}}
-    </div>
+
     </script>
 
     <script type="text/x-handlebars" id="thing">
-    <div class="otherpage">
-      {{#thing-detail thing=this}}
-        <button {{action "destroy"}} class="btn btn-danger">Delete this Top Thing</button>
-      {{/thing-detail}}
 
-      {{link-to "+Add New" "new_thing"}}
-      {{link-to "Review All" "review_things"}}
-    </div>
+      {{#thing-detail thing=this}}
+
+        <button {{action "destroy"}} class="btn btn-primary">Delete Top Thing</a>
+      {{/thing-detail}}
+      <nav class="cl-effect-8">
+        <ul>
+          <li><a href="#/things/new" data-hover="Add New">Add New</a></li>
+          <li><a href="#/review" data-hover="Review All">Review All</a></li>
+        </ul>
+    </nav>
     </script>
 
 
@@ -203,24 +209,28 @@
   </script>
 
   <script type="text/x-handlebars" id="login">
-  <div class="otherpage">
+
     <h2>Login</h2>
     <h4>{{error}}</h4>
 
     {{input type="email" value=username placeholder="email"}}
     {{input type="password" value=password placeholder="password"}}
 
-    <button {{action "login"}}>Login</button>
-  </div>
+    <button {{action "login"}} class="btn btn-primary">Login</button>
+
   </script>
 
 
 
   <script type="text/x-handlebars" id="review_things">
 
+  <nav class="cl-effect-8">
+    <ul>
+      <li><a href="#/review" {{action "sortToggle" "title"}} data-hover="Sort by Alphabet">Sort by Alphabet</a></li>
+      <li><a href="#/review" {{action "sortToggle" "rank"}} data-hover="Sort by Rank">Sort by Rank</a></li>
+    </ul>
+  </nav>
 
-  <button class="btn btn-primary" {{action "sortToggle" "title"}}>Sort Alphabetically</button>
-  <button class="btn btn-primary" {{action "sortToggle" "rank"}}>Sort by Rank</button>
     <ul>
     {{#each}}
     <div class="thing-container">
@@ -237,8 +247,11 @@
       </div>
     {{/each}}
     </ul>
-
-    {{link-to "+Add New" "new_thing"}}
+    <nav class="cl-effect-8">
+      <ul>
+        <li><a href="#/things/new" data-hover="Add New">Add New</a></li>
+      </ul>
+  </nav>
 
   </script>
 
@@ -248,7 +261,7 @@
           <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-5">
-              <h1>The Most Important Things In Life <strong><i>Aren't Things</i></strong></h1>
+              <h1>The Most Important Things In Life <i>Aren't Things</i></h1>
               <h3><i>~Unknown</i></h3>
               <ul>
                 <li><h4>Discover what is most important to you right now</h4></li>
