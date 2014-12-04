@@ -7,5 +7,9 @@ App.Thing = DS.Model.extend({
     return marked(this.get('description') || '');
   }.property('description'),
 
+  image:function () {
+    return (this.get('imgURL') || 'http://i.huffpost.com/gen/1688700/thumbs/o-HAPPY-DOG-DAY-OF-HAPPINESS-facebook.jpg');
+  }.property('imgURL'),
+
   imgURL    : DS.attr('string')
 });

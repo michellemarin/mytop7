@@ -37,9 +37,9 @@
                 <li><div class="spacer"></div></li>
                 <li><a href="#/" {{action 'toggleMenu' 'index'}}><img src="styleguide/responsive-logo.svg" class="logo-responsive" /></a></li>
                 <li><a href="#/" data-hover="Home" {{action 'toggleMenu' 'index'}}>Home</a></li>
-                <li><a href="#/review" data-hover="Review" {{action 'toggleMenu' 'review_things'}}>Review</a></li>
+                <li><a href="#/review" data-hover="Vote" {{action 'toggleMenu' 'review_things'}}>Vote</a></li>
               {{#if isLoggedIn}}
-                <li><a href="#/categories" data-hover="Category" {{action 'toggleMenu' 'category'}}>Categories</a></li>
+                <li><a href="#/results" data-hover="Results" {{action 'toggleMenu' 'results'}}>Results</a></li>
                 <li><button class="btn btn-primary" {{action 'toggleMenu' 'logout'}}>Logout</button></li>
               {{else}}
                 <li><a href="#/login" data-hover="Login" {{action 'toggleMenu' 'login'}}>Login</a></li>
@@ -63,9 +63,9 @@
             <nav class="cl-effect-8">
               <ul class="collapse navbar-collapse">
                 <li><a href="#/" data-hover="Home">Home</a></li>
-                <li><a href="#/review" data-hover="Review">Review</a></li>
+                <li><a href="#/review" data-hover="Vote">Vote</a></li>
               {{#if isLoggedIn}}
-                <li><a href="#/categories" data-hover="Categories"}}>Categories</a></li>
+                <li><a href="#/results" data-hover="Results"}}>Results</a></li>
                 <li><button {{action "logout"}} class="btn btn-primary">Logout</button></li>
               {{else}}
                 <li><a href="#/login" data-hover="Login">Login</a></li>
@@ -108,7 +108,7 @@
       </div>
       <div class="form-group">
         <label for="category">Category</label>
-        {{view "select" value=category content=App.CATEGORIES optionValuePath="content.id" optionLabelPath="content.name" classNames="form-control"}}
+        {{view "select" value=category prompt='select a category' content=App.CATEGORIES optionValuePath="content.id" optionLabelPath="content.name" classNames="form-control"}}
       </div>
       <div class="form-group">
         <label for="image">image (url)</label>
@@ -130,15 +130,11 @@
   <script type="text/x-handlebars" id="new_thing">
 
     {{#thing-form thing=this}}
-
-
-  <nav class="cl-effect-8">
-    <ul>
-      <li><a href="#/review" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
-    </ul>
-  </nav>
-
-
+      <nav class="cl-effect-8">
+        <ul>
+          <li><a href="#/review" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
+        </ul>
+      </nav>
     {{/thing-form}}
 
   </script>
@@ -155,7 +151,7 @@
     <div class="grid">
       {{#with thing}}
       <figure class="effect-ming">
-        <img {{bind-attr src=imgURL }} />
+        <img {{bind-attr src=image }} />
         <figcaption>
           <h2> {{title}} </h2>
           <h6> {{categoryName}} </h6>
@@ -180,7 +176,7 @@
         <nav class="cl-effect-8">
           <ul>
             <li>{{link-to "Edit" "edit_thing" this}}</li>
-            <li><a href="#/review" this {{action "destroy" }} data-hover="Delete">Delete</a></li>
+            <li><button class="btn btn-danger" {{action "destroy" }}>Delete</button></li>
           </ul>
         </nav>
 
@@ -193,50 +189,34 @@
     </nav>
     </script>
 
+    <script type="text/x-handlebars" id="results">
+      <nav class="cl-effect-8">
+        <ul>
+          <li><a href="#/results" {{action "sortToggle" "title"}} data-hover="Sort by Alphabet">Sort by Alphabet</a></li>
+          <li><a href="#/results" {{action "sortToggle" "rank"}} data-hover="Sort by Rank">Sort by Rank</a></li>
 
-  <script type="text/x-handlebars" id="category">
-  <div class="otherpage">
-    <ul>
-      <li>{{link-to "Show All" "category" (query-params category="all")}}</li>
-    {{#each App.CATEGORIES}}
-      <li>{{#link-to "category" (query-params category=id)}} Show Only {{name}} {{/link-to}} </li>
-    {{/each}}
-    </ul>
-    {{#if filteredThings.length }}
-    <h2>{{filteredThings.length}} Thing{{#if moreThanOneFound}}s{{/if}} Found</h2>
-    {{else}}
-    <h2>Sorry No Top Things Here</h2>
-    {{/if}}
-    <ul>
-      {{#each filteredThings}}
-        <li>
-        {{#link-to "thing" this tagName="h2"}} {{title}} {{/link-to}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
-  </script>
+        </ul>
+      </nav>
+      <div class="grid">
 
-  <script type="text/x-handlebars" id="login">
+        {{#each}}
+          <figure class="effect-ming">
+            <img {{bind-attr src=image }} />
+            <figcaption>
+              <h2>
+              {{#link-to "thing" this }} {{rank}} {{title}} {{/link-to}}
+              </h2>
 
-    <h2>Login</h2>
-    <h4>{{error}}</h4>
-
-    {{input type="email" value=username placeholder="email"}}
-    {{input type="password" value=password placeholder="password"}}
-
-    <button {{action "login"}} class="btn btn-primary">Login</button>
-
-  </script>
-
-
+            </figcaption>
+          </figure>
+        {{/each}}
+      </div>
+    </script>
 
   <script type="text/x-handlebars" id="review_things">
 
   <nav class="cl-effect-8">
     <ul>
-      <li><a href="#/review" {{action "sortToggle" "title"}} data-hover="Sort by Alphabet">Sort by Alphabet</a></li>
-      <li><a href="#/review" {{action "sortToggle" "rank"}} data-hover="Sort by Rank">Sort by Rank</a></li>
       <li><a href="#/things/new" data-hover="Add New">Add New</a></li>
     </ul>
   </nav>
@@ -244,14 +224,13 @@
 
     {{#each}}
       <figure class="effect-ming">
-        <img {{bind-attr src=imgURL }} />
+        <img {{bind-attr src=image }} />
         <figcaption>
           <h2>
-          {{#link-to "thing" this }} {{rank}} {{title}} {{/link-to}}
+           {{rank}} {{title}}
           </h2>
-          <p> Vote up or down
+          <p> Vote your top things
           <i class="glyphicon glyphicon-chevron-up" {{action "upvote" this }}></i>
-          <i class="glyphicon glyphicon-chevron-down" {{action "downvote" this }}></i>
           </p>
         </figcaption>
       </figure>
@@ -297,18 +276,27 @@
   <script src="js/app.js"></script>
   <script src="js/router.js"></script>
   <script src="js/authentication.js"></script>
-  <script src="js/routes/category_route.js"></script>
+
   <script src="js/routes/edit_thing_route.js"></script>
   <script src="js/routes/index_route.js"></script>
   <script src="js/routes/new_thing_index_route.js"></script>
   <script src="js/routes/review_things_route.js"></script>
   <script src="js/routes/thing_route.js"></script>
+  <script src="js/routes/results_route.js"></script>
+  <script src="js/routes/categories_route.js"></script>
+  <script src="js/routes/category_route.js"></script>
+  <script src="js/routes/edit_category_route.js"></script>
   <script src="js/models/thing.js"></script>
+  <script src="js/models/category.js"></script>
   <script src="js/controllers/edit_thing_controller.js"></script>
   <script src="js/controllers/new_thing_controller.js"></script>
   <script src="js/controllers/review_things_controller.js"></script>
   <script src="js/controllers/thing_controller.js"></script>
   <script src="js/controllers/index_controller.js"></script>
+  <script src="js/controllers/results_controller.js"></script>
+  <script src="js/controllers/categories_controller.js"></script>
+  <script src="js/controllers/new_category_controller.js"></script>
+  <script src="js/controllers/edit_category_controller.js"></script>
 
   <script src="tests/runner.js"></script>
 </body>

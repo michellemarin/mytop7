@@ -1,7 +1,6 @@
 App = Ember.Application.create({
   LOG_TRANSITIONS: true
-}
-);
+});
 
 App.Firebase = new Firebase('https://topseven.firebaseio.com/');
 
@@ -11,8 +10,8 @@ App.ApplicationAdapter = DS.FirebaseAdapter.extend({
 
 App.CATEGORIES = [
   {id: '1', name: 'Spirituality'},
-  {id: '2', name: 'Health/Wellness'},
-  {id: '3', name: 'Relationships (Family/Friends)'},
+  {id: '2', name: 'Health'},
+  {id: '3', name: 'Family'},
   {id: '4', name: 'Fitness'},
   {id: '5', name: 'Finance'},
   {id: '6', name: 'Community Service'},
@@ -20,10 +19,21 @@ App.CATEGORIES = [
   {id: '8', name: 'Other'}
 ];
 
+
 App.ThingFormComponent = Ember.Component.extend({
+  title      : DS.attr('string'),
+  description: DS.attr('string'),
+  category   : DS.attr('number'),
+
   markedDescription: function () {
     return marked((this.get('thing description')) || '');
-  }.property('thing.description')
+  }.property('thing.description'),
+
+  image:function () {
+    return (this.get('imgURL') || 'http://i.huffpost.com/gen/1688700/thumbs/o-HAPPY-DOG-DAY-OF-HAPPINESS-facebook.jpg');
+  }.property('imgURL'),
+
+  imgURL    : DS.attr('string')
 });
 
 
