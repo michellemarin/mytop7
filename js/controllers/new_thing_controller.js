@@ -18,7 +18,7 @@ App.NewThingController = Ember.Controller.extend({
         imgURL     : this.get('imgURL')
       });
       thing.save();
-      this.set('thing','');
+  
 
       this.transitionToRoute('review_things');
     }

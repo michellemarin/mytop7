@@ -6,7 +6,7 @@ App.ReviewThingsRoute = App.ApplicationRoute.extend({
       if (ran < 0) { ran = 0; }
       console.log(ran, ran+2);
       return data.slice(ran, ran + 2);
-      this.save();
+
     });
   },
 

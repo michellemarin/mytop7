@@ -12,11 +12,12 @@ App.CATEGORIES = [
   {id: '1', name: 'Spirituality'},
   {id: '2', name: 'Health'},
   {id: '3', name: 'Family'},
-  {id: '4', name: 'Fitness'},
-  {id: '5', name: 'Finance'},
-  {id: '6', name: 'Community Service'},
-  {id: '7', name: 'Travel'},
-  {id: '8', name: 'Other'}
+  {id: '4', name: 'Friends'},
+  {id: '5', name: 'Fitness'},
+  {id: '6', name: 'Finance'},
+  {id: '7', name: 'Community'},
+  {id: '8', name: 'Travel'},
+  {id: '9', name: 'Other'}
 ];
 
 

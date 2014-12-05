@@ -6,8 +6,8 @@ App.ReviewThingsController = Ember.ArrayController.extend({
     },
     upvote: function (thing) {
       thing.incrementProperty('rank');
-      this.send('shuffle');
       thing.save();
+      this.send('shuffle');
     },
     downvote: function (thing) {
       thing.decrementProperty('rank');
