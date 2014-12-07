@@ -3,6 +3,7 @@ App.Thing = DS.Model.extend({
   description: DS.attr('string'),
   category   : DS.attr('number'),
   rank       : DS.attr('number'),
+  count      : DS.attr('number'),
 
   markedDescription:function () {
     return marked(this.get('description') || '');
