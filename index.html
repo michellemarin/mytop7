@@ -12,8 +12,9 @@
   <link rel="stylesheet" href="css/component.css">
   <link rel="stylesheet" href="css/demo.css">
   <link rel="stylesheet" href="css/set2.css">
-  <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,500,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,800,500,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -36,13 +37,13 @@
               <ul class="responsive-nav">
                 <li><div class="spacer"></div></li>
                 <li><a href="#/" {{action 'toggleMenu' 'index'}}><img src="styleguide/responsive-logo.svg" class="logo-responsive" /></a></li>
-                <li><a href="#/" data-hover="Home" {{action 'toggleMenu' 'index'}}>Home</a></li>
-                <li><a href="#/review" data-hover="Vote" {{action 'toggleMenu' 'review_things'}}>Vote</a></li>
+                <li><a href="#/" data-hover="Home" {{action 'toggleMenu' 'index'}}><i class="fa fa-home"></i>&nbsp;Home</a></li>
+                <li><a href="#/review" data-hover="Vote" {{action 'toggleMenu' 'review_things'}}><i class="fa fa-thumb-tack"></i>&nbsp;Vote</a></li>
               {{#if isLoggedIn}}
-                <li><a href="#/results" data-hover="Results" {{action 'toggleMenu' 'results'}}>Results</a></li>
-                <li><button class="btn btn-primary" {{action 'toggleMenu' 'logout'}}>Logout</button></li>
+                <li><a href="#/results" data-hover="Results" {{action 'toggleMenu' 'results'}}><i class="fa fa-thumb-tack"></i>&nbsp;Results</a></li>
+                <li><button class="btn btn-primary" {{action 'toggleMenu' 'logout'}}><i class="fa fa-unlock"></i>&nbsp;Logout</button></li>
               {{else}}
-                <li><a href="#/login" data-hover="Login" {{action 'toggleMenu' 'login'}}>Login</a></li>
+                <li><a href="#/login" data-hover="Login" {{action 'toggleMenu' 'login'}}><i class="fa fa-unlock-alt"></i>&nbsp;Login</a></li>
               {{/if}}
               </ul>
             </nav>
@@ -62,13 +63,13 @@
           <section class="color-4">
             <nav class="cl-effect-8">
               <ul class="collapse navbar-collapse">
-                <li><a href="#/" data-hover="Home">Home</a></li>
-                <li><a href="#/review" data-hover="Vote">Vote</a></li>
+                <li><a href="#/" data-hover="Home"><i class="fa fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="#/review" data-hover="Vote"><i class="fa fa-check-square-o"></i>&nbsp;Vote</a></li>
               {{#if isLoggedIn}}
-                <li><a href="#/results" data-hover="Results"}}>Results</a></li>
-                <li><button {{action "logout"}} class="btn btn-primary">Logout</button></li>
+                <li><a href="#/results" data-hover="Results"}}><i class="fa fa-thumb-tack"></i>&nbsp;Results</a></li>
+                <li><button {{action "logout"}} class="btn btn-primary"><i class="fa fa-unlock"></i>&nbsp;Logout</button></li>
               {{else}}
-                <li><a href="#/login" data-hover="Login">Login</a></li>
+                <li><a href="#/login" data-hover="Login"><i class="fa fa-unlock-alt"></i>&nbsp;Login</a></li>
               {{/if}}
               </ul>
             </nav>
@@ -103,10 +104,6 @@
         {{input type="text" value=title id="title" class="form-control"}}
       </div>
       <div class="form-group">
-        <label for="description">Description</label>
-        {{input type="text" value=description id="description" class="form-control"}}
-      </div>
-      <div class="form-group">
         <label for="category">Category</label>
         {{view "select" value=category prompt='select a category' content=App.CATEGORIES optionValuePath="content.id" optionLabelPath="content.name" classNames="form-control"}}
       </div>
@@ -119,7 +116,6 @@
 
       <h2>{{title}}</h2>
       {{/with}}
-      {{{markedDescription}}}
       </div>
       <div class="col-xs-2"></div>
       </div>
@@ -156,7 +152,6 @@
         <figcaption>
           <h2> {{title}} </h2>
           <h6> {{categoryName}} </h6>
-          <p> {{{markedDescription}}} </p>
           {{#if isLoggedIn}}
           {{yield}}
 
@@ -177,15 +172,15 @@
             <nav class="cl-effect-8">
               <ul>
                 <li>{{link-to "Edit" "edit_thing" this}}</li>
-                <li><button class="btn btn-danger" {{action "destroy" }}>Delete</button></li>
+                <li><button class="btn btn-danger" {{action "destroy" }}><i class="fa fa-trash"></i>&nbsp;Delete</button></li>
               </ul>
             </nav>
 
           {{/thing-detail}}
           <nav class="cl-effect-8">
             <ul>
-              <li><a href="#/things/new" style="color: #354856;" data-hover="Add New">Add New</a></li>
-              <li><a href="#/results" style="color: #354856;" data-hover="Back to Results">Back to Results</a></li>
+              <li><a href="#/things/new" style="color: #354856;" data-hover="Add New"><i class="fa fa-plus"></i>&nbsp;Add New</a></li>
+              <li><a href="#/results" style="color: #354856;" data-hover="Back to Results"><i class="fa fa-thumb-tack"></i>&nbsp;Back to Results</a></li>
             </ul>
         </nav>
       </div>
@@ -193,8 +188,8 @@
 
     <script type="text/x-handlebars" id="results">
 
-        <h2>Here are the Results of your Top 7 Things!</h2>
-        <h4>The results are ranked in order of their importance to you right now</h4>
+        <h2><i class="fa fa-thumb-tack"></i>&nbsp;Results of your Top 7 Things!</h2>
+        <h4>Results are ranked in order of their importance to you right now</h4>
 
           <div class="grid">
 
@@ -221,7 +216,7 @@
 
   <script type="text/x-handlebars" id="review_things">
 
-      <h2>Vote on your Top 7 Things!</h2>
+      <h2><i class="fa fa-check-square-o"></i>&nbsp;Vote on your Top 7 Things!</h2>
       <h4>Out of the two things below, which one is more important to you right now?</h4>
       <p>If this is hard to choose, ask yourself if I could have "a" but not "b",
       would I be okay with that? If you said yes, vote on "a". If not, vote on "b".
@@ -248,6 +243,16 @@
 
   </script>
 
+  <script type="text/x-handlebars" id="login">
+    <h2>Login</h2>
+    <h4>{{error}}</h4>
+
+    {{input type="email" value=username placeholder="email"}}
+    {{input type="password" value=password placeholder="password"}}
+
+    <button {{action "login"}}>Login</button>
+  </script>
+
     <script type="text/x-handlebars" id="index">
       <div id="homepage">
         <div class="container-fluid" style="color: #354856;">
@@ -255,15 +260,17 @@
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <h1>The Most Important Things In Life <i>Aren't Things</i></h1>
-              <h3><i>~Unknown</i></h3>
-              <ul>
-                <li><h4>Discover what is most important to you right now</h4></li>
-                <li><h4>Find ways to have more of that in your life</h4></li>
-                <li><h4>Get resources to acheive your goals</h4></li>
+            <div id="test">
+              <ul class="fa-ul">
+                <li><i class="fa-li fa fa-star-o fa-2x"></i>Discover what is most important to you right now</li>
+                <li><i class="fa-li fa fa-thumbs-o-up fa-2x"></i>Find ways to have more of that in your life</li>
+                <li><i class="fa-li fa fa-smile-o fa-2x"></i>Get resources to acheive your goals</li>
+
               </ul>
+              </div>
               <section class="color-41">
                 <nav class="cl-effect-8">
-                  <a href="#/things/new" style="color: #354856;" data-hover="Get Started">Get Started</a>
+                  <a href="#/things/new" style="color: #354856;" data-hover="Get Started">Get Started <i class="fa fa-chevron-right"></i></a>
                 </nav>
               </section>
             </div>
