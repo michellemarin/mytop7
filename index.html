@@ -133,7 +133,7 @@
     {{#thing-form thing=this}}
       <nav class="cl-effect-8">
         <ul>
-          <li><a href="#/new_thing" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
+          <li><a href="#/new_thing" style="color: #354856;" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
         </ul>
       </nav>
     {{/thing-form}}
@@ -185,37 +185,43 @@
           <nav class="cl-effect-8">
             <ul>
               <li><a href="#/things/new" style="color: #354856;" data-hover="Add New">Add New</a></li>
-              <li><a href="#/review" style="color: #354856;" data-hover="Review All">Review All</a></li>
+              <li><a href="#/results" style="color: #354856;" data-hover="Back to Results">Back to Results</a></li>
             </ul>
         </nav>
       </div>
     </script>
 
     <script type="text/x-handlebars" id="results">
-      <div class="thing-container">
-        <h2>Congrats you now have clarity on your Top 7 Things!</h2>
+
+        <h2>Here are the Results of your Top 7 Things!</h2>
         <h4>The results are ranked in order of their importance to you right now</h4>
 
           <div class="grid">
 
             {{#each}}
-              <figure class="effect-ming">
-                <img {{bind-attr src=image }} />
-                <figcaption>
-                  <h2>
-                  {{#link-to "thing" this }} {{rank}} {{title}} {{/link-to}}
-                  </h2>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <figure class="effect-ming" style="width: 100%;">
+                  <img {{bind-attr src=image }} />
+                  <figcaption>
+                    <h2>
+                    {{#link-to "thing" this }} {{title}} {{/link-to}}
+                    </h2>
 
-                </figcaption>
-              </figure>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="col-md-3"></div>
+            </div>
             {{/each}}
           </div>
-        </div>
+
     </script>
 
   <script type="text/x-handlebars" id="review_things">
-    <div class="thing-container">
-      <h2>Congrats on creating your Top 7 Things!</h2>
+
+      <h2>Vote on your Top 7 Things!</h2>
       <h4>Out of the two things below, which one is more important to you right now?</h4>
       <p>If this is hard to choose, ask yourself if I could have "a" but not "b",
       would I be okay with that? If you said yes, vote on "a". If not, vote on "b".
@@ -223,27 +229,30 @@
       <div class="grid">
 
         {{#each}}
-          <figure class="effect-ming">
+
+          <figure class="effect-ming" style="width: 100%;">
             <img {{bind-attr src=image }} />
             <figcaption>
               <h2>
-               {{rank}} {{title}}
+                {{title}}
               </h2>
               <p> Vote on this thing
               <i class="glyphicon glyphicon-chevron-up" {{action "upvote" this }}></i>
               </p>
             </figcaption>
           </figure>
+
+
         {{/each}}
       </div>
-    </div>
+
   </script>
 
     <script type="text/x-handlebars" id="index">
       <div id="homepage">
-        <div class="container-fluid">
+        <div class="container-fluid" style="color: #354856;">
           <div class="row">
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
             <div class="col-md-5">
               <h1>The Most Important Things In Life <i>Aren't Things</i></h1>
               <h3><i>~Unknown</i></h3>
@@ -254,11 +263,14 @@
               </ul>
               <section class="color-41">
                 <nav class="cl-effect-8">
-                  <a href="#/things/new" data-hover="Get Started">Get Started</a>
+                  <a href="#/things/new" style="color: #354856;" data-hover="Get Started">Get Started</a>
                 </nav>
               </section>
             </div>
-            <div class="col-md-5"></div>
+            <div class="col-md-5">
+              <img src="styleguide/homenew.jpg" style="width: 100%;" />
+            </div>
+            <div class="col-md-1"></div>
           </div>
         </div>
       </div>
