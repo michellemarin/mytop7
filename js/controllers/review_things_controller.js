@@ -7,7 +7,8 @@ App.ReviewThingsController = Ember.ArrayController.extend({
     upvote: function (thing) {
       thing.incrementProperty('rank');
       thing.save();
-      if (thing.get('rank') > 70) {
+      console.log(thing.get('rank'));
+      if (thing.get('rank') > 50) {
       this.transitionTo('results');
     } else {
       this.send('shuffle');
