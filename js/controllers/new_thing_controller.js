@@ -18,9 +18,19 @@ App.NewThingController = Ember.Controller.extend({
         imgURL     : this.get('imgURL')
       });
       thing.save();
-  
+      this.set('title', '');
+      this.set('description', '');
+      this.set('imgURL', '');
+      var self = this;
+      this.store.find('thing').then( function (thing) {
+        if (thing.get('length') > 6) {
+          self.transitionToRoute('review_things')
+          } else {
+            self.transitionToRoute('new_thing');
+            }
+      });
 
-      this.transitionToRoute('review_things');
+
     }
   }
 });

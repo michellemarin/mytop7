@@ -128,11 +128,12 @@
 
 
   <script type="text/x-handlebars" id="new_thing">
-
+  <h2>Fill out this form to create a new "top thing"</h2>
+  <h4>You'll need to create at least 7 to vote.</h4>
     {{#thing-form thing=this}}
       <nav class="cl-effect-8">
         <ul>
-          <li><a href="#/review" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
+          <li><a href="#/new_thing" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
         </ul>
       </nav>
     {{/thing-form}}
@@ -190,9 +191,11 @@
     </script>
 
     <script type="text/x-handlebars" id="results">
+    <h2>Congrats you now have clarity on your Top 7 Things!</h2>
+    <h4>The results are ranked in order of their importance to you right now</h4>
       <nav class="cl-effect-8">
         <ul>
-          <li><a href="#/results" {{action "sortToggle" "title"}} data-hover="Sort by Alphabet">Sort by Alphabet</a></li>
+          
           <li><a href="#/results" {{action "sortToggle" "rank"}} data-hover="Sort by Rank">Sort by Rank</a></li>
 
         </ul>
@@ -215,11 +218,11 @@
 
   <script type="text/x-handlebars" id="review_things">
 
-  <nav class="cl-effect-8">
-    <ul>
-      <li><a href="#/things/new" data-hover="Add New">Add New</a></li>
-    </ul>
-  </nav>
+  <h2>Congrats on creating your 7 Top Things!</h2>
+  <h4>Out of the two things below, which one is more important to you right now?</h4>
+  <p>If this is hard to choose, ask yourself if I could have "a" but not "b",
+  would I be okay with that? If you said yes, vote on "a". If not, vote on "b".
+  <p>
   <div class="grid">
 
     {{#each}}
@@ -229,7 +232,7 @@
           <h2>
            {{rank}} {{title}}
           </h2>
-          <p> Vote your top things
+          <p> Vote yes on this thing
           <i class="glyphicon glyphicon-chevron-up" {{action "upvote" this }}></i>
           </p>
         </figcaption>

@@ -17,6 +17,7 @@ App.CATEGORIES = [
   {id: '6', name: 'Finance'},
   {id: '7', name: 'Community'},
   {id: '8', name: 'Travel'},
+  {id: '9', name: 'Career'},
   {id: '9', name: 'Other'}
 ];
 
