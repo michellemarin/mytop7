@@ -179,7 +179,7 @@
     </script>
 
     <script type="text/x-handlebars" id="thing">
-      <div class="thing-container">
+
           {{#thing-detail thing=this}}
             <nav class="cl-effect-8">
               <ul>
@@ -195,7 +195,7 @@
               <li><a href="#/results" style="color: #354856;" data-hover="Back to Results"><i class="fa fa-thumb-tack"></i>&nbsp;Back to Results</a></li>
             </ul>
         </nav>
-      </div>
+
     </script>
 
     <script type="text/x-handlebars" id="results">
@@ -211,10 +211,10 @@
               <div class="col-md-6">
                 <figure class="effect-ming" style="width: 100%;">
                   <img {{bind-attr src=image }} />
-                  <figcaption>
-                    <h2>
-                    {{#link-to "thing" this }} {{title}} {{/link-to}}
-                    </h2>
+                <figcaption>
+                <h2>
+                  {{#link-to "thing" this }}  {{title}} {{/link-to}}
+                </h2>
 
                   </figcaption>
                 </figure>
@@ -238,13 +238,13 @@
         {{#each}}
 
           <figure class="effect-ming" style="width: 100%;">
-            <img {{bind-attr src=image }} />
+            <img {{bind-attr src=image }} {{action "upvote" this }} />
             <figcaption>
               <h2>
                 {{title}}
               </h2>
               <p> Vote on this thing
-              <i class="glyphicon glyphicon-chevron-up" {{action "upvote" this }}></i>
+              <i class="glyphicon glyphicon-chevron-up" ></i>
               </p>
             </figcaption>
           </figure>
@@ -274,10 +274,9 @@
               <h1>The Most Important Things In Life <i>Aren't Things</i></h1>
             <div id="test">
               <ul class="fa-ul">
-                <li><i class="fa-li fa fa-star-o fa-2x"></i>Discover what is most important to you right now</li>
-                <li><i class="fa-li fa fa-thumbs-o-up fa-2x"></i>Find ways to have more of that in your life</li>
-                <li><i class="fa-li fa fa-smile-o fa-2x"></i>Get resources to acheive your goals</li>
-
+                <li><i class="fa-li fa fa-star-o fa-lg"></i>Discover what is most important to you right now</li>
+                <li><i class="fa-li fa fa-thumbs-o-up fa-lg"></i>Find ways to have more of that in your life</li>
+                <li><i class="fa-li fa fa-smile-o fa-lg"></i>Get resources to acheive your goals</li>
               </ul>
               </div>
               <section class="color-41">

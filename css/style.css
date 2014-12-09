@@ -11,11 +11,6 @@ body {
   font-weight: 400;
 	font-size: 1em;
   color: #333;
-  background: #333;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   margin: 0;
 }
 
@@ -32,8 +27,8 @@ p {
   }
 
 #test {
-  font-size: 18px;
-  line-height: 2.5em;
+  font-size: 16px;
+  line-height: 1.5em;
 }
 
 .logo {
@@ -41,11 +36,6 @@ p {
   height: 100px;
   margin-top: -15px;
   margin-left: 10px;
-}
-
-.logo-responsive {
-  width: 100%;
-  text-align: center;
 }
 
 
@@ -133,6 +123,7 @@ li {
   -o-background-size: cover;
   background-size: cover;
   height: 2000px;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -181,4 +172,13 @@ a:hover {
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 1px solid rgba(215, 44, 44, 0.9);
+}
+
+
+@media only screen
+and (max-device-width : 480px) {
+
+  #homepage img {
+    display: none !important;
+  }
 }
