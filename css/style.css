@@ -35,6 +35,14 @@ li {
   clear: both;
 }
 
+.clearfix li {
+  display: block;
+}
+
+.clearfix h4 {
+  font-weight: 700;
+}
+
 
 #test {
   font-size: 16px;
