@@ -166,17 +166,13 @@
           <h2> {{title}} </h2>
           <h6> {{categoryName}} </h6>
           {{#if isLoggedIn}}
-          {{yield}}
-
-
+            {{yield}}
           {{/if}}
           {{outlet}}
         {{/with}}
           </figcaption>
         </figure>
       </div>
-
-
     </script>
 
     <script type="text/x-handlebars" id="thing">
@@ -188,7 +184,6 @@
                 <li><button class="btn btn-danger" {{action "destroy" }}><i class="fa fa-trash"></i>&nbsp;Delete</button></li>
               </ul>
             </nav>
-
           {{/thing-detail}}
           <nav class="cl-effect-8">
             <ul>
@@ -203,11 +198,8 @@
       <div class="container-fluid">
         <h2><i class="fa fa-thumb-tack"></i>&nbsp;Results of your Top 7 Things!</h2>
         <h4>Results are ranked in order of their importance to you right now</h4>
-
         {{#each}}
-
         <div class="grid">
-
           <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-7">
@@ -223,43 +215,41 @@
             </div>
             <div class="col-md-2"></div>
           </div>
-
         </div>
         {{/each}}
       </div>
-
-
     </script>
 
   <script type="text/x-handlebars" id="review_things">
     <div class="container-fluid">
       <h2><i class="fa fa-check-square-o"></i>&nbsp;Vote on your Top 7 Things!</h2>
       <h4>Out of the two things below, which one is more important to you right now?</h4>
-      <p>If this is hard to choose, ask yourself if I could have "a" but not "b",
-      would I be okay with that? If you said yes, vote on "a". If not, vote on "b".
-      <p>
-
       <div class="grid">
-      {{#each}}
-
-
-          <figure class="effect-ming">
-            <img {{bind-attr src=image }} />
-            <figcaption>
-              <h2>
-                {{title}}
-              </h2>
-              <p> Vote on this thing
-              <i class="glyphicon glyphicon-chevron-up" {{action "upvote" this }}  ></i>
-              </p>
-            </figcaption>
-          </figure>
-
-
-      {{/each}}
+        {{#each}}
+            <figure class="effect-ming">
+              <img {{bind-attr src=image }} />
+              <figcaption {{action "upvote" this }} >
+                <h2>
+                  {{title}}
+                </h2>
+                <h4> Vote on this
+                <i class="fa fa-heart-o"></i>
+                </h4>
+              </figcaption>
+            </figure>
+        {{/each}}
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h2>Having trouble deciding?</h2>
+          <p>If this is hard to choose, ask yourself if I could have "a" but not "b",
+          would I be okay with that? If you said yes, vote on "a". If not, vote on "b".
+          </p>
+        </div>
+        <div class="col-md-3"></div>
       </div>
     </div>
-
   </script>
 
   <script type="text/x-handlebars" id="login">
