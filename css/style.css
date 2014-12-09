@@ -37,10 +37,10 @@ p {
 }
 
 .logo {
-  width: 115px;
-  height: 115px;
-  display: inline-block;
-  margin-left: 20px;
+  width: 100px;
+  height: 100px;
+  margin-top: -15px;
+  margin-left: 10px;
 }
 
 .logo-responsive {
@@ -85,6 +85,7 @@ li {
 .navbar-default.main-nav {
   background: rgba(59, 98, 164, 0.9);
   border: none !important;
+  height: 100px;
 }
 
 .navbar-toggle.custom-menu {
@@ -154,6 +155,10 @@ a:hover {
   color: #eee;
 }
 
+
+.fa-ul li {
+  display: block;
+}
 
 .thing-container {
   margin: 0 auto;

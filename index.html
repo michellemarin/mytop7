@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My Top 7 Things</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Top 7 Things</title>
   <meta name="description" content="My Top 7 Things: Discover what is most important to you right now" />
 	<meta name="keywords" content="lifestyle, self-improvment, application, web app, self-help" />
 	<meta name="author" content="Michelle Marin: Frontend Developer + Web Designer" />
@@ -15,13 +16,13 @@
   <link rel="stylesheet" href="css/set2.css">
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,800,500,600' rel='stylesheet' type='text/css'>
   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -30,65 +31,40 @@
 <body>
 
   <script type="text/x-handlebars">
-  <div class="container-fluid">
+
 
     <div class="navbar navbar-default navbar-fixed-top main-nav" role="navigation">
-      <div class="navbar-header">
+      <div class="container">
+        <div class="navbar-header">
 
-        <button type="button" {{action 'toggleMenu'}} class="navbar-toggle custom-menu" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle Navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
-        {{#if expand}}
-
-          <section class="bg-cover">
-            <nav class="cl-effect-8">
-              <ul class="responsive-nav">
-                <li><div class="spacer"></div></li>
-                <li><a href="#/" {{action 'toggleMenu' 'index'}}><img src="styleguide/responsive-logo.svg" class="logo-responsive" /></a></li>
-                <li><a href="#/" data-hover="Home" {{action 'toggleMenu' 'index'}}><i class="fa fa-home"></i>&nbsp;Home</a></li>
-                <li><a href="#/review" data-hover="Vote" {{action 'toggleMenu' 'review_things'}}><i class="fa fa-thumb-tack"></i>&nbsp;Vote</a></li>
-              {{#if isLoggedIn}}
-                <li><a href="#/results" data-hover="Results" {{action 'toggleMenu' 'results'}}><i class="fa fa-thumb-tack"></i>&nbsp;Results</a></li>
-                <li><button class="btn btn-primary" {{action 'toggleMenu' 'logout'}}><i class="fa fa-unlock"></i>&nbsp;Logout</button></li>
-              {{else}}
-                <li><a href="#/login" data-hover="Login" {{action 'toggleMenu' 'login'}}><i class="fa fa-unlock-alt"></i>&nbsp;Login</a></li>
-              {{/if}}
-              </ul>
-            </nav>
-          </section>
-
-        {{else}}
-
-        {{/if}}
-
+          <button type="button" {{action 'toggleMenu'}} class="navbar-toggle custom-menu" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/"><img src="styleguide/mytop7-logo.svg" class="logo" /></a>
       </div>
-      <div class="collapse navbar-collapse">
+      <div class="navbar-collapse collapse">
 
-        {{#link-to "index" }}
-        <img src="styleguide/mytop7-logo.svg" }} class="logo" />
-        {{/link-to}}
+            <ul class="nav navbar-nav navbar-right">
+              <section class="color-4">
+                <nav class="cl-effect-8">
+                  <li><a href="#/" data-hover="Home"><i class="fa fa-home"></i>&nbsp; Home</a></li>
+                  <li><a href="#/review" data-hover="Vote"><i class="fa fa-check-square-o"></i>&nbsp;Vote</a></li>
+                {{#if isLoggedIn}}
+                  <li><a href="#/results" data-hover="Results"}}><i class="fa fa-thumb-tack"></i>&nbsp;Results</a></li>
+                  <li><a href="" {{action "logout"}} data-hover="Logout"><i class="fa fa-unlock"></i>&nbsp;Logout</a></li>
+                {{else}}
+                  <li><a href="#/login" data-hover="Login"><i class="fa fa-unlock-alt"></i>&nbsp;Login</a></li>
+                {{/if}}
+                </nav>
+              </section>
+            </ul>
 
-          <section class="color-4">
-            <nav class="cl-effect-8">
-              <ul class="collapse navbar-collapse">
-                <li><a href="#/" data-hover="Home"><i class="fa fa-home"></i>&nbsp; Home</a></li>
-                <li><a href="#/review" data-hover="Vote"><i class="fa fa-check-square-o"></i>&nbsp;Vote</a></li>
-              {{#if isLoggedIn}}
-                <li><a href="#/results" data-hover="Results"}}><i class="fa fa-thumb-tack"></i>&nbsp;Results</a></li>
-                <li><button {{action "logout"}} class="btn btn-primary"><i class="fa fa-unlock"></i>&nbsp;Logout</button></li>
-              {{else}}
-                <li><a href="#/login" data-hover="Login"><i class="fa fa-unlock-alt"></i>&nbsp;Login</a></li>
-              {{/if}}
-              </ul>
-            </nav>
-          </section>
         </div>
       </div>
-
+    </div>
 
   <div class="spacer"></div>
   <div class="spacer-sm"></div>
@@ -99,7 +75,7 @@
       </article>
     </div>
   </p>
-  </div>
+
   </script>
 
   <script type="text/x-handlebars" id="components/thing-form">
