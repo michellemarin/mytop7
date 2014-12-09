@@ -45,6 +45,29 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#/"><img src="styleguide/mytop7-logo.svg" class="logo" /></a>
+
+           {{#if expand}}
+
+          <section class="bg-cover">
+            <nav class="cl-effect-8">
+              <ul class="responsive-nav">
+                <li><div class="spacer"></div></li>
+
+                <li><a href="#/" data-hover="Home" {{action 'toggleMenu' 'index'}}><i class="fa fa-home"></i>&nbsp;Home</a></li>
+                <li><a href="#/review" data-hover="Vote" {{action 'toggleMenu' 'review_things'}}><i class="fa fa-thumb-tack"></i>&nbsp;Vote</a></li>
+              {{#if isLoggedIn}}
+                <li><a href="#/results" data-hover="Results" {{action 'toggleMenu' 'results'}}><i class="fa fa-thumb-tack"></i>&nbsp;Results</a></li>
+                <li><a href="" {{action "logout"}} data-hover="Logout"><i class="fa fa-unlock"></i>&nbsp;Logout</a></li>
+              {{else}}
+                <li><a href="#/login" data-hover="Login" {{action 'toggleMenu' 'login'}}><i class="fa fa-unlock-alt"></i>&nbsp;Login</a></li>
+              {{/if}}
+              </ul>
+            </nav>
+          </section>
+
+        {{else}}
+
+        {{/if}}
       </div>
       <div class="navbar-collapse collapse">
 
