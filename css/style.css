@@ -16,15 +16,20 @@ body {
 
 
 h1, h2, h3 {
-    line-height: 1;
-    font-weight: 800;
+  line-height: 1;
+  font-weight: 800;
   }
 
 p {
-    font-size: 16px;
-    text-align: center;
+  font-size: 16px;
+  text-align: center;
+}
 
-  }
+li {
+  list-style-type: none;
+  display: inline-block;
+}
+
 
 #test {
   font-size: 16px;
@@ -55,7 +60,7 @@ header {
 }
 
 #homepage {
-  color: white;
+  color: #354856;
   text-align: left;
   margin: 0;
   padding: 0;
@@ -66,11 +71,6 @@ header {
   font-weight: 800;
 }
 
-
-li {
-  list-style-type: none;
-  display: inline-block;
-}
 
 .navbar-default.main-nav {
   background: rgba(59, 98, 164, 0.9);
