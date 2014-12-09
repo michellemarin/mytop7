@@ -30,6 +30,11 @@ li {
   display: inline-block;
 }
 
+.clearfix {
+  display: block;
+  clear: both;
+}
+
 
 #test {
   font-size: 16px;
@@ -99,6 +104,10 @@ header {
 
 .collapse.in {
   background: transparent !important;
+}
+
+.navbar-collapse {
+  margin-top: 13px;
 }
 
 .navbar-inverse .navbar-nav>.active>a,

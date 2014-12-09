@@ -52,7 +52,6 @@
             <nav class="cl-effect-8">
               <ul class="responsive-nav">
                 <li><div class="spacer"></div></li>
-
                 <li><a href="#/" data-hover="Home" {{action 'toggleMenu' 'index'}}><i class="fa fa-home"></i>&nbsp;Home</a></li>
                 <li><a href="#/review" data-hover="Vote" {{action 'toggleMenu' 'review_things'}}><i class="fa fa-thumb-tack"></i>&nbsp;Vote</a></li>
               {{#if isLoggedIn}}
@@ -64,13 +63,10 @@
               </ul>
             </nav>
           </section>
-
         {{else}}
-
         {{/if}}
       </div>
       <div class="navbar-collapse collapse">
-
             <ul class="nav navbar-nav navbar-right">
               <section class="color-4">
                 <nav class="cl-effect-8">
@@ -85,7 +81,6 @@
                 </nav>
               </section>
             </ul>
-
         </div>
       </div>
     </div>
@@ -105,33 +100,29 @@
   <script type="text/x-handlebars" id="components/thing-form">
 
   {{#with thing}}
-    <form role="form">
     <div class="row">
       <div class="col-xs-2"></div>
       <div class="col-xs-8">
-
-      <div class="form-group">
-
-        <label for="title">Title</label>
-        {{input type="text" value=title id="title" class="form-control"}}
-      </div>
-      <div class="form-group">
-        <label for="category">Category</label>
-        {{view "select" value=category prompt='select a category' content=App.CATEGORIES optionValuePath="content.id" optionLabelPath="content.name" classNames="form-control"}}
-      </div>
-      <div class="form-group">
-        <label for="image">image (url)</label>
-        {{input type="text" value=imgURL id="image" class="form-control"}}
-      </div>
-      {{yield}}
-      </form>
-
-      <h2>{{title}}</h2>
-      {{/with}}
+        <form role="form">
+          <div class="form-group">
+              <label for="title">Title</label>
+              {{input type="text" value=title id="title" class="form-control"}}
+            </div>
+            <div class="form-group">
+              <label for="category">Category</label>
+              {{view "select" value=category prompt='select a category' content=App.CATEGORIES optionValuePath="content.id" optionLabelPath="content.name" classNames="form-control"}}
+            </div>
+            <div class="form-group">
+              <label for="image">image (url)</label>
+              {{input type="text" value=imgURL id="image" class="form-control"}}
+            </div>
+            {{yield}}
+          </form>
+        <h2>{{title}}</h2>
       </div>
       <div class="col-xs-2"></div>
-      </div>
-
+    </div>
+    {{/with}}
   </script>
 
 
@@ -222,32 +213,34 @@
 
   <script type="text/x-handlebars" id="review_things">
     <div class="container-fluid">
-      <h2><i class="fa fa-check-square-o"></i>&nbsp;Vote on your Top 7 Things!</h2>
-      <h4>Out of the two things below, which one is more important to you right now?</h4>
-      <div class="grid">
-        {{#each}}
-            <figure class="effect-ming">
-              <img {{bind-attr src=image }} />
-              <figcaption {{action "upvote" this }} >
-                <h2>
-                  {{title}}
-                </h2>
-                <h4> Vote on this
-                <i class="fa fa-heart-o"></i>
-                </h4>
-              </figcaption>
-            </figure>
-        {{/each}}
-      </div>
       <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-          <h2>Having trouble deciding?</h2>
-          <p>If this is hard to choose, ask yourself if I could have "a" but not "b",
-          would I be okay with that? If you said yes, vote on "a". If not, vote on "b".
-          </p>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2><i class="fa fa-check-square-o"></i>&nbsp;Vote on your Top 7 Things!</h2>
+            <h4>Out of the two things below, which one is more important to you right now?</h4>
+            <div class="grid">
+              {{#each}}
+                  <figure class="effect-ming">
+                    <img {{bind-attr src=image }} />
+                    <figcaption {{action "upvote" this }} >
+                      <h2>
+                        {{title}}
+                      </h2>
+                      <h4> Vote on this
+                      <i class="fa fa-heart-o"></i>
+                      </h4>
+                    </figcaption>
+                  </figure>
+              {{/each}}
+            </div>
+            <div class="clearfix">
+              <h2>Having trouble deciding?</h2>
+              <p>If this is hard to choose, ask yourself if I could have "a" but not "b",
+              would I be okay with that? If you said yes, vote on "a". If not, vote on "b".
+              </p>
+            </div>  
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-2"></div>
       </div>
     </div>
   </script>
