@@ -136,24 +136,25 @@
 
 
   <script type="text/x-handlebars" id="new_thing">
-  <h2>Fill out this form to create a new "top thing"</h2>
-  <h4>You'll need to create at least 7 to vote.</h4>
-    {{#thing-form thing=this}}
-      <nav class="cl-effect-8">
-        <ul>
-          <li><a href="#/new_thing" style="color: #354856;" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
-        </ul>
-      </nav>
-    {{/thing-form}}
-
+    <div class="container-fluid">
+      <h2>Fill out this form to create a new "top thing"</h2>
+      <h4>You'll need to create at least 7 to vote.</h4>
+        {{#thing-form thing=this}}
+          <nav class="cl-effect-8">
+            <ul>
+              <li><a href="#/new_thing" style="color: #354856;" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
+            </ul>
+          </nav>
+        {{/thing-form}}
+    </div>
   </script>
 
     <script type="text/x-handlebars" id="edit_thing">
-
-    {{#thing-form thing=this}}
-      <button {{action "update"}} class="btn btn-primary">Update</button>
-    {{/thing-form}}
-
+      <div class="container-fluid">
+        {{#thing-form thing=this}}
+          <button {{action "update"}} class="btn btn-primary">Update</button>
+        {{/thing-form}}
+      </div>
   </script>
 
   <script type="text/x-handlebars" id="components/thing-detail">
@@ -262,17 +263,19 @@
   </script>
 
   <script type="text/x-handlebars" id="login">
-    <h2>Login</h2>
-    <h4>{{error}}</h4>
+    <div class="container-fluid">
+      <h2>Login</h2>
+      <h4>{{error}}</h4>
 
-    {{input type="email" value=username placeholder="email"}}
-    {{input type="password" value=password placeholder="password"}}
+      {{input type="email" value=username placeholder="email"}}
+      {{input type="password" value=password placeholder="password"}}
 
-    <button {{action "login"}}>Login</button>
+      <button {{action "login"}}>Login</button>
+    </div>
   </script>
 
     <script type="text/x-handlebars" id="index">
-      <div class="container-fluid" style="color: #354856;">
+      <div class="container-fluid">
         <div id="homepage">
           <div class="row">
             <div class="col-md-1"></div>
@@ -296,7 +299,7 @@
             </div>
             <div class="col-md-1"></div>
           </div>
-        </div>  
+        </div>
       </div>
   </script>
 
