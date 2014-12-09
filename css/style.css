@@ -10,7 +10,7 @@ body {
   font-family: 'Raleway', Arial, sans-serif !important;
   font-weight: 400;
 	font-size: 1em;
-  color: #333;
+  color: #354856;
   margin: 0;
 }
 
@@ -61,9 +61,8 @@ article {
   margin: 0 auto;
   width: 100%;
   font-size: 14px;
-
   padding: 0;
-  color: #222;
+  color: #354856;
   text-align: center;
 }
 
