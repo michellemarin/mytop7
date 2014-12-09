@@ -71,10 +71,29 @@ header {
   background: transparent;
 }
 
+#extend-home {
+  background: url('styleguide/home.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
 #homepage {
   color: #354856;
   text-align: left;
-  margin: 0;
+  background: url('../styleguide/home.jpg') no-repeat bottom center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: 0;
+  padding: 0;
+}
+
+#homepage .container-fluid {
   padding: 0;
 }
 
