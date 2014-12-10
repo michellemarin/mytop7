@@ -25,6 +25,16 @@ p {
   text-align: center;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #73C8A9;
+}
+
+
 li {
   list-style-type: none;
   display: inline-block;
@@ -68,7 +78,8 @@ header {
 
 
 #wrapper {
-  background: url('../styleguide/home.jpg') no-repeat center center fixed;
+  background: url('../styleguide/happy-1.jpg') no-repeat center center fixed;
+  backround-color: #73C8A9;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -91,10 +102,11 @@ header {
   margin-top: 4em;
   font-size: 16px;
   line-height: 1.8em;
-  color: #354856;
+  color: #fff;
   text-align: left;
   height: 80%;
 }
+
 
 .navbar-default.main-nav {
   background: #73C8A9;
@@ -102,10 +114,30 @@ header {
   height: 100px;
 }
 
-.navbar-toggle.custom-menu {
+button.navbar-toggle.custom-menu {
   border-style: solid;
   border-width: 3px;
-  border-color: white;
+  border-color: #fff;
+  background-color: none;
+}
+button.navbar-toggle.custom-menu:hover,
+button.navbar-toggle.custom-menu:focus {
+  background-color: white;
+}
+
+.navbar-toggle a:hover,
+.navbar-toggle a:focus {
+  background-color: transparent;
+  background-image: none;
+  color: #73C8A9;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+  background-color: #73C8A9;
 }
 
 .navbar-header {
@@ -157,7 +189,7 @@ header {
 }
 
 .bg-cover {
-  background: #333;
+  background: #354856;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -176,16 +208,6 @@ header {
   color: white;
   text-align: center;
 }
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #eee;
-}
-
 
 .fa-ul li {
   display: block;
