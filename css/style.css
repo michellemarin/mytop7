@@ -106,6 +106,16 @@ header {
   text-align: left;
 }
 
+.resources {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.resources li {
+  display: block;
+}
+
+
 .navbar-default.main-nav {
   background: #73C8A9;
   border: none !important;
