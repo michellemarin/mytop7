@@ -222,6 +222,28 @@ button.navbar-toggle.custom-menu:focus {
   border: 1px solid rgba(215, 44, 44, 0.9);
 }
 
+footer {
+  background: #354856;
+  color: #fff;
+  margin: 0;
+}
+
+footer > .container-fluid {
+padding-right: 15px;
+padding-left: 15px;
+}
+
+#footer-text {
+  position: relative;
+  margin-top: 10px;
+  text-align: left;
+  font-size: 12px;
+}
+
+#footer-text li {
+  margin-left: 20px;
+}
+
 
 @media only screen
 and (max-device-width : 480px) {
