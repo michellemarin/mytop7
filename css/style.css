@@ -228,10 +228,15 @@ button.navbar-toggle.custom-menu:focus {
 @media only screen
 and (max-device-width : 480px) {
 
-  .spacer {
-    height: 40px;
-    padding: 0;
+  #wrapper {
+    background: url('../styleguide/happy.jpg') no-repeat center center fixed;
+    backround-color: #73C8A9;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     margin: 0;
+    padding: 0;
   }
 
 }
