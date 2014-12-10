@@ -66,8 +66,8 @@
 }
 
 .grid figure h2 {
-	word-spacing: -0.15em;
-	font-weight: 300;
+	font-weight: 600;
+	letter-spacing: 2;
 }
 
 .grid figure h2 span {
@@ -82,6 +82,12 @@
 .grid figure p {
 	letter-spacing: 1px;
 	font-size: 68.5%;
+}
+
+.grid figure a {
+	color: #73C8A9;
+	font-weight: 600;
+	letter-spacing: 2;
 }
 
 
@@ -1169,6 +1175,7 @@ figure.effect-ming h2 {
 	margin: 20% 0 10px 0;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
+	color: #73C8A9;
 }
 
 figure.effect-ming p {

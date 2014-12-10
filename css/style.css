@@ -10,7 +10,7 @@ body {
   font-family: 'Raleway', Arial, sans-serif !important;
   font-weight: 400;
 	font-size: 1em;
-  color: #354856;
+  color: #373B44;
   margin: 0;
 }
 
@@ -97,7 +97,7 @@ header {
 }
 
 .navbar-default.main-nav {
-  background: rgba(59, 98, 164, 0.9);
+  background: #73C8A9;
   border: none !important;
   height: 100px;
 }
