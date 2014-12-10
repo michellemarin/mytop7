@@ -146,6 +146,7 @@
   </script>
 
   <script type="text/x-handlebars" id="components/thing-detail">
+
     <div class="grid">
       {{#with thing}}
       <figure class="effect-ming">
@@ -157,14 +158,12 @@
             {{yield}}
           {{/if}}
           {{outlet}}
-
           </figcaption>
         </figure>
           <div class="resources">
           <h2>Resources</h2>
             <h4>To help you acheive your goals.</h4>
             <p>(Related to the category you picked for this top thing.)</p>
-
             <ul class="fa-ul">
               {{#each resource in resources}}
                 <li>{{resource.url}}&nbsp;<i class="fa fa-external-link"></i></li>
@@ -173,6 +172,7 @@
           </div>
         {{/with}}
       </div>
+
     </script>
 
     <script type="text/x-handlebars" id="thing">
@@ -193,6 +193,8 @@
               <li><a href="#/results" data-hover="Back to Results"><i class="fa fa-thumb-tack"></i>&nbsp;Back to Results</a></li>
             </ul>
         </nav>
+        <div class="spacer-sm"></div>
+        <div class="spacer-sm"></div>
       </div>
     </script>
 
