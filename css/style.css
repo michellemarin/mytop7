@@ -229,7 +229,7 @@ button.navbar-toggle.custom-menu:focus {
 and (max-device-width : 480px) {
 
   .spacer {
-    height: 50px;
+    height: 40px;
     padding: 0;
     margin: 0;
   }
