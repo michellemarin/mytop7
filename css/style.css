@@ -43,12 +43,6 @@ li {
   font-weight: 700;
 }
 
-
-#test {
-  font-size: 16px;
-  line-height: 1.8em;
-}
-
 .logo {
   width: 100px;
   height: 100px;
@@ -58,7 +52,8 @@ li {
 
 
 article {
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   width: 100%;
   font-size: 14px;
   padding: 0;
@@ -71,19 +66,8 @@ header {
   background: transparent;
 }
 
-#extend-home {
-  background: url('styleguide/home.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-}
 
-#homepage {
-  color: #354856;
-  text-align: left;
+#wrapper {
   background: url('../styleguide/home.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -93,15 +77,24 @@ header {
   padding: 0;
 }
 
-#homepage .container-fluid {
+#wrapper .container-fluid {
   padding: 0;
+  margin: 0;
 }
 
-#homepage h1 {
+#wrapper h2 {
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
 }
 
+#home-text {
+  margin-top: 4em;
+  font-size: 16px;
+  line-height: 1.8em;
+  color: #354856;
+  text-align: left;
+  height: 80%;
+}
 
 .navbar-default.main-nav {
   background: rgba(59, 98, 164, 0.9);
@@ -143,8 +136,20 @@ header {
   display: inline-block;
 }
 
+#startchange {
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  margin: 0;
+  padding: 0;
+}
+
 .spacer {
   height: 100px;
+  padding: 0;
+  margin: 0;
 }
 
 .spacer-sm {
