@@ -183,7 +183,7 @@ button.navbar-toggle.custom-menu:focus {
 
 #content {
   margin: 0;
-  padding: 0;
+  padding-bottom: 0;
 }
 
 .spacer {
