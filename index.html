@@ -116,9 +116,9 @@
       <h2>Fill out this form to create a new "top thing"</h2>
       <h4>You'll need to create at least 7 to vote.</h4>
         {{#thing-form thing=this}}
-          <nav class="cl-effect-8">
+          <nav class="cl-effect-88">
             <ul>
-              <li><a href="#/new_thing" style="color: #354856;" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
+              <li><a href="#/new_thing" {{action "save"}} data-hover="Add Top Thing">Add Top Thing</a></li>
             </ul>
           </nav>
         {{/thing-form}}
@@ -156,15 +156,15 @@
           {{#thing-detail thing=this}}
             <nav class="cl-effect-8">
               <ul>
-                <li>{{link-to "Edit" "edit_thing" this}}</li>
+                <li>{{link-to "Edit" "edit_thing" this }}</li>
                 <li><button class="btn btn-danger" {{action "destroy" }}><i class="fa fa-trash"></i>&nbsp;Delete</button></li>
               </ul>
             </nav>
           {{/thing-detail}}
-          <nav class="cl-effect-8">
+          <nav class="cl-effect-88">
             <ul>
-              <li><a href="#/things/new" style="color: #354856;" data-hover="Add New"><i class="fa fa-plus"></i>&nbsp;Add New</a></li>
-              <li><a href="#/results" style="color: #354856;" data-hover="Back to Results"><i class="fa fa-thumb-tack"></i>&nbsp;Back to Results</a></li>
+              <li><a href="#/things/new" data-hover="Add New"><i class="fa fa-plus"></i>&nbsp;Add New</a></li>
+              <li><a href="#/results" data-hover="Back to Results"><i class="fa fa-thumb-tack"></i>&nbsp;Back to Results</a></li>
             </ul>
         </nav>
       </div>
