@@ -1155,6 +1155,12 @@ figure.effect-ming img {
 	transition: opacity 0.35s;
 }
 
+.tint {
+  cursor: pointer;
+  background: rgba(53,72,86, 0.6);
+	padding: 10px;
+}
+
 figure.effect-ming figcaption::before {
 	position: absolute;
 	top: 30px;

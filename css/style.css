@@ -104,9 +104,7 @@ header {
   line-height: 1.8em;
   color: #fff;
   text-align: left;
-  height: 80%;
 }
-
 
 .navbar-default.main-nav {
   background: #73C8A9;
@@ -230,7 +228,6 @@ and (max-device-width : 480px) {
 
   #wrapper {
     background: url('../styleguide/happy.jpg') no-repeat center center fixed;
-    backround-color: #73C8A9;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
