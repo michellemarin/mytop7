@@ -6,4 +6,5 @@ App.Router.map(function () {
   this.route('results',           {path: '/results'            });
   this.route('category',          { path: '/categories'        });
   this.route('login',             {path: '/login'              });
+  this.route('contact',           {path: '/contact'            });
 });

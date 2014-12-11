@@ -259,6 +259,15 @@ padding-left: 15px;
   margin-left: 20px;
 }
 
+#footer-text a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer-text a:hover {
+  color: #73C8A9;
+}
+
 
 @media only screen
 and (max-device-width : 480px) {

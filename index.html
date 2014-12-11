@@ -84,7 +84,7 @@
       <div id="footer-text">
         <ul>
           <li>© 2014 My Top Seven Things</li>
-          <li>Contact Us</li>
+          <li>{{link-to "Contact" "contact"}}</li>
         </ul>
       </div>
     </div>
@@ -279,6 +279,24 @@
       <button {{action "login"}}>Login</button>
     </div>
   </script>
+
+  <script type="text/x-handlebars" id="contact">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+          <h2>Contact</h2>
+          <p>Please feel free to get in touch. Any feedback on how to make this app
+          better is always welcome. Or if you just want to say hi that's great too!
+          </p>
+          <h4>Send emails to:</h4>
+          <p>michelle.a.marin@gmail.com</p>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </script>
+
 
     <script type="text/x-handlebars" id="index">
       <div id="wrapper">
