@@ -90,6 +90,7 @@
 	letter-spacing: 2;
 }
 
+/* Grid 2: For Thing-Detail Template */
 
 .grid2 {
 	position: relative;
@@ -103,6 +104,9 @@
 
 /* Common style */
 .grid2 figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
 	margin: 10px 1%;
 	min-width: 320px;
 	max-width: 480px;
@@ -131,8 +135,8 @@
 	backface-visibility: hidden;
 }
 
-.grid2 figure figcaption::before,
-.grid2 figure figcaption::after {
+.grid figure figcaption::before,
+.grid figure figcaption::after {
 	pointer-events: none;
 }
 
@@ -156,8 +160,8 @@
 }
 
 .grid2 figure h2 {
-	word-spacing: -0.15em;
-	font-weight: 300;
+	font-weight: 600;
+	letter-spacing: 2;
 }
 
 .grid2 figure h2 span {
@@ -173,6 +177,13 @@
 	letter-spacing: 1px;
 	font-size: 68.5%;
 }
+
+.grid2 figure a {
+	color: #73C8A9;
+	font-weight: 600;
+	letter-spacing: 2;
+}
+
 /* Individual effects */
 
 /*---------------*/

@@ -107,9 +107,8 @@ header {
 }
 
 .resources {
-  width: 100%;
   margin-top: 25px;
-  margin-left: 40px;
+
 }
 
 .resources li {
@@ -117,6 +116,10 @@ header {
 
 }
 
+.detail {
+  width: 100%;
+  height: auto;
+}
 
 .navbar-default.main-nav {
   background: #73C8A9;
@@ -268,6 +271,19 @@ and (max-device-width : 480px) {
     background-size: cover;
     margin: 0;
     padding: 0;
+  }
+
+  .mobile {
+    display: inline-block;
+    float: left;
+  }
+
+  .shrink-mobile {
+    font-size: 9px;
+  }
+
+  .btn-danger {
+    font-size: 9px;
   }
 
 }

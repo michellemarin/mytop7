@@ -84,8 +84,6 @@
       <div id="footer-text">
         <ul>
           <li>© 2014 My Top Seven Things</li>
-          <li>Brand Style Guide</li>
-          <li>Colophon</li>
           <li>Contact Us</li>
         </ul>
       </div>
@@ -147,19 +145,24 @@
 
   <script type="text/x-handlebars" id="components/thing-detail">
 
-    <div class="grid">
-      {{#with thing}}
-      <figure class="effect-ming">
-        <img {{bind-attr src=image }} />
-        <figcaption class="tint">
-          <h2> {{title}} </h2>
-          <h6> {{categoryName}} </h6>
-          {{#if isLoggedIn}}
-            {{yield}}
-          {{/if}}
-          {{outlet}}
-          </figcaption>
-        </figure>
+
+   <div class="grid2">
+    <div class="row-fluid">
+        {{#with thing}}
+      <div class="col-md-6">
+        <figure class="effect-ming">
+          <img {{bind-attr src=image }} />
+          <figcaption class="tint">
+            <h2> {{title}} </h2>
+            <h6> {{categoryName}} </h6>
+            {{#if isLoggedIn}}
+              {{yield}}
+            {{/if}}
+            {{outlet}}
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-md-6">
           <div class="resources">
           <h2>Resources</h2>
             <h4>To help you acheive your goals.</h4>
@@ -170,31 +173,31 @@
               {{/each}}
              </ul>
           </div>
+          <nav class="cl-effect-88">
+            <ul>
+              <li><a href="#/things/new" data-hover="Add New"><i class="fa fa-plus"></i>&nbsp;Add New</a></li>
+              <li><a href="#/results" data-hover="Back to Results"><i class="fa fa-thumb-tack"></i>&nbsp;Back to Results</a></li>
+            </ul>
+          </nav>
+          <div class="spacer-sm"></div>
+          <div class="spacer-sm"></div>
+        </div>
         {{/with}}
       </div>
-
+     </div>
+  
     </script>
 
     <script type="text/x-handlebars" id="thing">
       <div class="container-fluid">
           {{#thing-detail thing=this}}
             <nav class="cl-effect-8">
-              <ul>
-                <li>{{link-to "Edit" "edit_thing" this }}</li>
+              <ul class="mobile">
+                <li class="shrink-mobile">{{link-to "Edit" "edit_thing" this }}</li>
                 <li><button class="btn btn-danger" {{action "destroy" }}><i class="fa fa-trash"></i>&nbsp;Delete</button></li>
               </ul>
             </nav>
-
           {{/thing-detail}}
-
-          <nav class="cl-effect-88">
-            <ul>
-              <li><a href="#/things/new" data-hover="Add New"><i class="fa fa-plus"></i>&nbsp;Add New</a></li>
-              <li><a href="#/results" data-hover="Back to Results"><i class="fa fa-thumb-tack"></i>&nbsp;Back to Results</a></li>
-            </ul>
-        </nav>
-        <div class="spacer-sm"></div>
-        <div class="spacer-sm"></div>
       </div>
     </script>
 
@@ -210,10 +213,9 @@
               <figure class="effect-ming" style="width: 100%;" >
                 <img {{bind-attr src=image }} style="width: 100%;"/>
               <figcaption class="tint">
-              <h2>
-                {{#link-to "thing" this }}  {{title}} {{/link-to}}
-              </h2>
-
+                <h2>
+                  {{#link-to "thing" this }}  {{title}} {{/link-to}}
+                </h2>
                 </figcaption>
               </figure>
             </div>
