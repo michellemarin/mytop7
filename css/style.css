@@ -191,6 +191,10 @@ button.navbar-toggle.custom-menu:focus {
   padding-bottom: 0;
 }
 
+.center {
+  text-align: center;
+}
+
 .spacer {
   height: 100px;
   padding: 0;

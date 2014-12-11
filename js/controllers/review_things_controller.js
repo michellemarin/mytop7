@@ -9,7 +9,7 @@ App.ReviewThingsController = Ember.ArrayController.extend({
       thing.save();
       console.log(thing.get('rank'));
       if (thing.get('rank') > 50) {
-      this.transitionTo('results');
+      this.transitionToRoute('results');
     } else {
       this.send('shuffle');
       }

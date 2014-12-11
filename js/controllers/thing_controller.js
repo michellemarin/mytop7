@@ -18,7 +18,6 @@ App.ThingController = Ember.ObjectController.extend({
     var res = App.RESOURCES.filter( function (resource) {
       return resource.categoryID == self.get('category');
     });
-    console.log(res);
     return res;
   }.property('category'),
 
@@ -27,7 +26,7 @@ App.ThingController = Ember.ObjectController.extend({
       if (confirm('Are you sure you want to delete this top thing?')) {
         this.get('model').deleteRecord();
         this.get('model').save();
-        this.transitionToRoute('review_things');
+        this.transitionToRoute('results');
       }
     }
   }

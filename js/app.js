@@ -8,6 +8,11 @@ App.ApplicationAdapter = DS.FirebaseAdapter.extend({
   firebase: App.Firebase
 });
 
+//
+// App.ApplicationAdapter = DS.LSAdapter.extend({
+//   namespace: 'mytop7-emberjs'
+// });
+
 App.CATEGORIES = [
   {id: '1', name: 'Spirituality'},
   {id: '2', name: 'Health'},
@@ -67,7 +72,7 @@ App.DEFAULTIMG = [
   {id: '8', categoryID: '8', url: 'unsplashed/career.jpeg'}
 ]
 
- App.ThingFormComponent = Ember.Component.extend({
+  App.ThingFormComponent = Ember.Component.extend({
    title      : DS.attr('string'),
    category   : DS.attr('number'),
 
