@@ -56,16 +56,27 @@ App.RESOURCES = [
   {id: '32', categoryID: '8', rname: 'Penelope Trunk-Blog',      url: 'http://penelopetrunk.com/'}
 ]
 
-App.ThingFormComponent = Ember.Component.extend({
-  title      : DS.attr('string'),
-  category   : DS.attr('number'),
+App.DEFAULTIMG = [
+  {id: '1', categoryID: '1', url: 'unsplashed/lotus.jpg'},
+  {id: '2', categoryID: '2', url: 'unsplashed/health2.jpg'},
+  {id: '3', categoryID: '3', url: 'unsplashed/family.jpeg'},
+  {id: '4', categoryID: '4', url: 'unsplashed/fitness.jpg'},
+  {id: '5', categoryID: '5', url: 'unsplashed/finance.jpg'},
+  {id: '6', categoryID: '6', url: 'unsplashed/community1.jpg'},
+  {id: '7', categoryID: '7', url: 'unsplashed/travel2.jpeg'},
+  {id: '8', categoryID: '8', url: 'unsplashed/career.jpeg'}
+]
 
-  image:function () {
-    return (this.get('imgURL') || 'http://i.huffpost.com/gen/1688700/thumbs/o-HAPPY-DOG-DAY-OF-HAPPINESS-facebook.jpg');
-  }.property('imgURL'),
+ App.ThingFormComponent = Ember.Component.extend({
+   title      : DS.attr('string'),
+   category   : DS.attr('number'),
 
-  imgURL    : DS.attr('string')
-});
+   image:function () {
+     return (this.get('imgURL') || 'unsplashed/no-category.jpeg');
+   }.property('imgURL'),
+
+   imgURL    : DS.attr('string')
+ });
 
 
 /*$(document).ready(function(){
