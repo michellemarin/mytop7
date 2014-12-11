@@ -169,7 +169,7 @@
             <p>(Related to the category you picked for this top thing.)</p>
             <ul class="fa-ul">
               {{#each resource in resources}}
-                <li>{{resource.rname}}&nbsp;<i class="fa fa-external-link"></i></li>
+                <li><a target="_blank" {{bind-attr href="resource.url"}}>{{resource.rname}}&nbsp;<i class="fa fa-external-link"></i></a></li>
               {{/each}}
              </ul>
           </div>
